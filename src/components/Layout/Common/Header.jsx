@@ -1,4 +1,4 @@
-import RogoImage from '../assets/RogoImage.png';
+import RogoImage from '../../../assets/RogoImage.png';
 
 
 export default function Header() {
