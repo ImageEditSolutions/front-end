@@ -4,7 +4,7 @@ import BottomSection from "./BottomSection";
 
 export default function Main () {
     return (
-        <main className="w-full h-full relative">
+        <main>
         <TopSection />
         <MiddleSection />
         <BottomSection />
