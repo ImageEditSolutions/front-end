@@ -37,6 +37,7 @@ export default function BottomSection() {
       {/* 섹션 2 - 이미지 섹션과 텍스트 섹션을 병렬 배치 */}
       <div className="flex justify-center gap-4">
         {/* 이미지 섹션 */}
+        
         <div className="flex flex-col gap-2">
           <img
             src={Cat}
@@ -71,12 +72,10 @@ export default function BottomSection() {
             className="w-40 h-80 object-cover rounded-md"
           />
         </div>
-
-        {/* 텍스트 섹션 */}
-        <div className="flex justify-center">
+        <div className='flex justify-center'>
           <div className="text-left w-1/2">
             <h3 className="text-2xl font-bold mb-4">
-              다양한 스타일로 구현하는{' '}
+              다양한 스타일로 구현하는
               <div className="text-[#9DD6E9]">뚜렷한 머릿속 이미지</div>
             </h3>
             <p className="mb-8">
@@ -96,9 +95,9 @@ export default function BottomSection() {
               alt="Menu 2"
               className="w-64 h-auto object-cover rounded-md absolute top-12 left-4"
             />
+             </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   );
