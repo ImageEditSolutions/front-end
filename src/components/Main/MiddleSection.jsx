@@ -2,7 +2,7 @@ import MiddleBackground from '../../assets/MiddleSectionBackground.png';
 import AiImage1 from '../../assets/AiImage1.png';
 import AiImage2 from '../../assets/AiImage2.png';
 import AiImage3 from '../../assets/AiImage3.png';
-import Arrow from '../../assets/Arrow.png';
+import YArrow from '../../assets/YArrow.png';
 
 export default function MiddleSection() {
   return (
@@ -51,10 +51,10 @@ export default function MiddleSection() {
           기대 이상의 놀라운 결과를 확인하세요!
         </h3>
         <div className="flex justify-center items-center mb-8">
-          <img src={Arrow} alt="Arrow" className="w-30 h-9" />
+          <img src={YArrow} alt="Arrow" className="w-30 h-9" />
         </div>
         <h2 className="text-4xl font-bold mb-4">
-          흐릿한 영감, 정확한 AI 이미지 생성기
+          흐릿한 영감, <span className='text-[#9DD6E9]'>정확한</span> AI 이미지 생성기
         </h2>
         <p className="text-lg text-gray-400 mb-8">
           단순한 텍스트를 시각적으로 풍성한 아트워크로 변환하는 혁신적인 AI
