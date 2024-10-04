@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // useNavigate 훅 추가
 
 const ImageUploadBox = () => {
   const [dragActive, setDragActive] = useState(false);
   const [image, setImage] = useState(null);
+  const navigate = useNavigate(); // useNavigate 훅 사용
 
   // 파일 드롭 시 처리
   const handleDrop = (e) => {
@@ -12,7 +14,10 @@ const ImageUploadBox = () => {
 
     const files = e.dataTransfer.files;
     if (files && files[0]) {
-      setImage(URL.createObjectURL(files[0])); // 이미지 미리보기 설정
+      const uploadedImage = URL.createObjectURL(files[0]);
+      setImage(uploadedImage); // 이미지 미리보기 설정
+      // 이미지 업로드 후 페이지 이동, 이미지 데이터를 함께 전달
+      navigate('/image-edit', { state: { imageUrl: uploadedImage } });
     }
   };
 
