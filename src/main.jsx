@@ -1,14 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { StrictMode } from 'react';
+import ReactDOM from 'react-dom'; // React 17에서는 react-dom을 사용
+import App from './App.jsx'; // App 컴포넌트 임포트
+import './index.css'; // CSS 파일 임포트
 
-const queryClient = new QueryClient()
-createRoot(document.getElementById('root')).render(
-  <QueryClientProvider client={queryClient}>
+// React 앱 렌더링
+ReactDOM.render(
   <StrictMode>
     <App />
   </StrictMode>,
-  </QueryClientProvider>
-)
+  document.getElementById('root') // 루트 엘리먼트에 렌더링
+);
