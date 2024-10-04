@@ -35,7 +35,7 @@ export default function BottomSection() {
       </div>
 
       {/* 섹션 2 - 이미지 섹션과 텍스트 섹션을 병렬 배치 */}
-      <div className="flex justify-center gap-4">
+      <div className="flex justify-center max-w-7xl mx-auto gap-4">
         {/* 이미지 섹션 */}
         
         <div className="flex flex-col gap-2">
@@ -73,7 +73,7 @@ export default function BottomSection() {
           />
         </div>
         <div className='flex justify-center'>
-          <div className="text-left w-1/2">
+          <div className="text-left">
             <h3 className="text-2xl font-bold mb-4">
               다양한 스타일로 구현하는
               <div className="text-[#9DD6E9]">뚜렷한 머릿속 이미지</div>
@@ -82,18 +82,18 @@ export default function BottomSection() {
               2D, 3D, 실사, 벡터 이미지 등도 내 아이디어에 다양한 스타일을
               지원합니다.
             </p>
-          <div className="relative">
+          <div className="relative ">
             {/* 메뉴 1 */}
             <img
               src={Menu1}
               alt="Menu 1"
-              className="w-72 h-auto object-cover rounded-md mb-4 relative"
+              className="w-76 h-79 object-cover rounded-md mb-4 absolut"
             />
             {/* 메뉴 2 겹치도록 설정 */}
             <img
               src={Menu2}
               alt="Menu 2"
-              className="w-64 h-auto object-cover rounded-md absolute top-12 left-4"
+              className="w-75 h-79 object-cover rounded-md absolute "
             />
              </div>
             </div>
