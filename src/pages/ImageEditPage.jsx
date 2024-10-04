@@ -1,7 +1,6 @@
-import { useLocation } from 'react-router-dom'; // 이미지 데이터를 받기 위해 useLocation 사용
+import { useLocation } from 'react-router-dom';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import ImageEditor from '@toast-ui/react-image-editor';
-
 
 const myTheme = {
   // 기본 테마를 확장하는 사용자 정의 테마
@@ -18,7 +17,7 @@ const ImageEditPage = () => {
         <ImageEditor
           includeUI={{
             loadImage: {
-              path: imageUrl, // 동적으로 로드할 이미지 경로 설정
+              path: imageUrl, // 전달받은 이미지 경로 설정
               name: 'Uploaded Image',
             },
             theme: myTheme,
@@ -46,3 +45,4 @@ const ImageEditPage = () => {
 };
 
 export default ImageEditPage;
+

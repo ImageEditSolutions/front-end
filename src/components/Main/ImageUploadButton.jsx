@@ -1,14 +1,18 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom'; // 페이지 이동을 위한 useNavigate 훅 사용
 
-const ImageUploadButton = ({ onImageUpload }) => {
+const ImageUploadButton = () => {
   const fileInputRef = useRef(null);
+  const navigate = useNavigate(); // 페이지 이동을 위한 useNavigate
 
   // 파일 선택 시 처리
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) {
       const uploadedImage = URL.createObjectURL(file);
-      onImageUpload(uploadedImage); // 부모 컴포넌트에 이미지 전달
+      
+      // 이미지 업로드 후 /image-edit 페이지로 이동, 이미지 URL을 state로 전달
+      navigate('/image-edit', { state: { imageUrl: uploadedImage } });
     }
   };
 
@@ -53,4 +57,5 @@ const ImageUploadButton = ({ onImageUpload }) => {
 };
 
 export default ImageUploadButton;
+
 
