@@ -1,5 +1,6 @@
 import birdRight from '../../assets/bridRight.png';
 import bridLeft from '../../assets/bridLeft.png';
+import { NavLink } from "react-router-dom";
 
 export default function TopSection() {
   return (
