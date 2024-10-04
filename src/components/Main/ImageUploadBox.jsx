@@ -10,7 +10,7 @@ const ImageUploadBox = () => {
   const handleDrop = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setDragActive(false);
+    setDragActive(false); // 드래그 상태 종료
 
     const files = e.dataTransfer.files;
     if (files && files[0]) {
@@ -25,21 +25,21 @@ const ImageUploadBox = () => {
   const handleDragOver = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setDragActive(true);
+    setDragActive(true); // 드래그 상태 활성화
   };
 
-  // 드래그 떠날 시 시각적 변화를 위한 처리
+  // 드래그가 드롭 영역 밖으로 나갔을 때 상태 복원
   const handleDragLeave = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    setDragActive(false);
+    setDragActive(false); // 드래그 상태 종료 (드래그가 영역을 벗어나면 원상태로)
   };
 
   return (
     <div
-      className={`w-80 h-40 bg-gray-800 rounded-lg flex items-center justify-center mx-auto ${dragActive ? 'border-2 border-blue-500' : ''}`}
+      className={`w-80 h-40 bg-gray-800 rounded-lg flex items-center justify-center mx-auto transition-colors duration-300 ${dragActive ? 'border-2 border-blue-500' : ''}`}
       onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
+      onDragLeave={handleDragLeave} // 드래그가 영역을 벗어나면 처리
       onDrop={handleDrop}
     >
       {image ? (
@@ -72,3 +72,4 @@ const ImageUploadBox = () => {
 };
 
 export default ImageUploadBox;
+

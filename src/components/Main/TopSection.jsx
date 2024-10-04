@@ -2,8 +2,18 @@ import birdRight from '../../assets/bridRight.png';
 import bridLeft from '../../assets/bridLeft.png';
 import { NavLink } from "react-router-dom";
 import ImageUploadBox from './ImageUploadBox'
+import ImageUploadButton from './ImageUploadButton';
+import { useState } from 'react';
 
 export default function TopSection() {
+  const { image, setImage } = useState(null);
+  
+    // 이미지 업로드 시 처리 함수
+    const handleImageUpload = (uploadedImage) => {
+      setImage(uploadedImage); // 이미지 상태 업데이트
+    };
+
+
   return (
     <section className="bg-gray-900 text-white py-12 px-6">
       <div className="flex items-center justify-center">
@@ -43,23 +53,7 @@ export default function TopSection() {
        <ImageUploadBox />
         {/* 버튼 섹션 */}
         <div className="mt-6 flex space-x-4 justify-center">
-          <button className="flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 mr-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4v16m8-8H4"
-              />
-            </svg>
-            이미지 업로드
-          </button>
+        <ImageUploadButton onImageUpload={handleImageUpload} />
           <NavLink to="/ai-image-generation">
             <button className="flex items-center bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
               <svg
