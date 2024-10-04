@@ -3,12 +3,15 @@ import RogoImage from '../assets/RogoImage.png';
 
 export default function Header() {
   return (
-    <header className="w-full h-[136px] bg-black flex items-center justify-between px-8">
-    {/* 로고와 텍스트 부분 */}
-    <div className="flex items-center gap-2">
-        <img src={RogoImage} alt="Logo" className="h-10" />
-        <span className="text-white text-2xl font-bold">PicShare</span>
-    </div>
+    <header
+      className="w-full h-[136px] bg-black flex items-center justify-between px-8"
+      style={{padding:"0 15%"}} // 임시 수정.
+    >
+      {/* 로고와 텍스트 부분 */}
+      <div className="flex items-center gap-2">
+          <img src={RogoImage} alt="Logo" className="h-10" />
+          <span className="text-white text-2xl font-bold">PicShare</span>
+      </div>
 
       <nav className="flex items-center gap-8 text-white">
         <a href="#소개" className="hover:text-gray-400">
