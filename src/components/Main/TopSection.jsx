@@ -1,6 +1,7 @@
 import birdRight from '../../assets/bridRight.png';
 import bridLeft from '../../assets/bridLeft.png';
 import { NavLink } from "react-router-dom";
+import ImageUploadBox from './ImageUploadBox'
 
 export default function TopSection() {
   return (
@@ -34,31 +35,12 @@ export default function TopSection() {
 
       {/* 이미지 업로드 섹션 */}
       <div className="mt-20">
-        {' '}
         {/* 위로부터의 간격을 추가 */}
         <h2 className="text-xl font-bold text-center mb-4">
           원하는 이미지를 넣어보세요
         </h2>
         {/* 이미지 업로드 박스 */}
-        <div className="w-80 h-40 bg-gray-800 rounded-lg flex items-center justify-center mx-auto">
-          <div className="text-center">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-10 w-10 mx-auto mb-2 text-gray-500"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3 16l4-4m0 0l4 4m-4-4v12m13-12h-3.586l-1 1H8m0 0l1 1m3-1l4-4m0 0l4 4"
-              />
-            </svg>
-            <p className="text-gray-400">이미지를 추가해주세요</p>
-          </div>
-        </div>
+       <ImageUploadBox />
         {/* 버튼 섹션 */}
         <div className="mt-6 flex space-x-4 justify-center">
           <button className="flex items-center bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-md">
