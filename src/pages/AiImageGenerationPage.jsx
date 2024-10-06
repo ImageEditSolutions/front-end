@@ -13,4 +13,3 @@ function AiImageGenerationPage() {
   }
   
   export default AiImageGenerationPage;
-  
