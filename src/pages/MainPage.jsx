@@ -1,8 +1,8 @@
 
 import Header from "../components/Header";
 import Main from "../components/Main/Main";
-import Footer from "../components/Footer";
-import Banner from "../components/Banner";
+import Footer from "../components/Main/Footer";
+import Banner from "../components/Main/Banner";
 
 function MainPage() {
   return (
