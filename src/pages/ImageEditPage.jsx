@@ -11,11 +11,15 @@ const ImageEditPage = () => {
   console.log("Received imageUrl: ", imageUrl); // 전달된 imageUrl 확인
 
   return (
-    <>
+    <div className="flex flex-col bg-black">
       <Header />
-      <ImageEditorComponent imageUrl={imageUrl} />
-      <Sidebar />
-    </>
+      <div className="flex flex-grow p-4 space-x-4">  {/* 이미지 에디터와 사이드바를 Flexbox로 배치 */}
+        <div className="flex-1">
+          <ImageEditorComponent imageUrl={imageUrl} />
+        </div>
+        <Sidebar />
+      </div>
+    </div>
   );
 };
 

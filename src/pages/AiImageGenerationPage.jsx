@@ -1,17 +1,7 @@
-import React, { useState } from 'react';
-import Header from "../components/Header";
 
+import Header from "../components/Header";
 function AiImageGenerationPage() {
   // 에셋 폴더에 있는 이미지 중 메뉴, 엘우, 백드라운드를 제외한 이미지 경로들
-  const [generatedImages, setGeneratedImages] = useState([
-    "/assets/image1.jpg",
-    "/assets/image2.jpg",
-    "/assets/image3.jpg",
-    "/assets/image4.jpg",
-    "/assets/image5.jpg",
-    "/assets/image6.jpg",
-    // 필요한 만큼 이미지를 추가
-  ]);
 
   return (
     <div className="bg-gray-100 min-h-screen">
@@ -40,15 +30,7 @@ function AiImageGenerationPage() {
         <section>
           <h2 className="text-xl font-bold mb-4">생성된 이미지</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {generatedImages.map((image, index) => (
-              <div key={index} className="relative">
-                <img
-                  src={image}
-                  alt={`Generated Image ${index + 1}`}
-                  className="w-full h-56 object-cover rounded-md shadow-md"
-                />
-              </div>
-            ))}
+              
           </div>
         </section>
       </main>

@@ -1,5 +1,6 @@
 import { default as ToastUIEditor } from '@toast-ui/react-image-editor';
 import PropTypes from 'prop-types';
+import './ImageEdit.css'
 
 const myTheme = {
   // 필요한 경우 사용자 정의 테마 설정
@@ -7,7 +8,7 @@ const myTheme = {
 
 const ImageEditorComponent = ({ imageUrl }) => {
   return (
-    <div className="flex-1 bg-white rounded-lg shadow-lg p-4">
+    <div className="flex-1 flex-grow rounded-lg shadow-lg p-4 h-full">
       {imageUrl ? (
         <ToastUIEditor
           includeUI={{

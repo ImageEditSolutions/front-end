@@ -10,7 +10,7 @@ const Sidebar = () => {
       </div>
 
       {/* 이미지 목록 */}
-      <div className="space-y-4 flex-grow overflow-y-auto">
+      <div className="space-y-4 flex-grow overflow-y-auto h-full">
         <img
           src="/path/to/image1.jpg"
           alt="추천 이미지 1"
