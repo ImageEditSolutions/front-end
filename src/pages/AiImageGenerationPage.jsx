@@ -1,3 +1,4 @@
+
 import Header from '../components/Layout/Common/Header.jsx';
 import TextToImagePanel from '../components/AIImageGeneration/TextToImagePanel.jsx';
 
@@ -13,3 +14,4 @@ function AiImageGenerationPage() {
   }
   
   export default AiImageGenerationPage;
+
