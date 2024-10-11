@@ -1,0 +1,4 @@
+PHP_FLAG register_globals ON
+PHP_VALUE mysql.default_charset UTF8
+PHP_VALUE error_reporting 22527
+PHP_FLAG display_errors on
