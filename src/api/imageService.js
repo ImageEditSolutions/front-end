@@ -2,15 +2,17 @@ import axios from 'axios';
 export const API_SERVER_URL = import.meta.env.API_SERVER_URL;
 
 // AI 관련 API
-export const requestAIImageGeneration = async (img_data) => {
+export const requestAIImageGeneration = async (prompt) => {
   try {
     const response = await axios({
       method: 'POST',
       url: `${API_SERVER_URL}/api/ai/upload`,
       data: {
-        img_data,
+        prompt,
       },
     })
+
+    return response.data;
   } catch (error) {
     console.error("Error creating AI image", error);
   }
