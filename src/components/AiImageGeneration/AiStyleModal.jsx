@@ -20,7 +20,10 @@ export default function AiStyleModal({ isOpen, onClose }) {
         <div className="grid grid-cols-3 gap-4">
           {/* 이미지와 텍스트를 반복 렌더링 */}
           {styles.map((style, index) => (
-            <div key={index} className="w-20 h-24 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <div
+              key={index}
+              className="w-20 h-24 bg-gray-700 rounded-lg flex flex-col items-center justify-center hover:border-4 hover:border-blue-400 "
+            >
               <img src={style.src} alt={style.alt} className="h-12 w-12 mb-2" />
               <span className="text-white text-sm">{style.label}</span> {/* 텍스트 추가 */}
             </div>
@@ -37,3 +40,4 @@ AiStyleModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,  // isOpen은 반드시 boolean이어야 함
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
 };
+
