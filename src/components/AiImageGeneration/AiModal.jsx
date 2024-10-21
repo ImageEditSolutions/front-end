@@ -27,5 +27,6 @@ export default function AiModal({ isOpen, onClose }) {
         <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={onClose}>닫기</button>
       </div>
     </div>
-  )
-};
+  );
+}
+
