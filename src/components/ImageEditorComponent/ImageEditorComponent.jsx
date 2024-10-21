@@ -89,28 +89,6 @@ const ImageEditorComponent = ({ imageUrl }) => {
                 height: '100%',
               },
               menuBarPosition: 'left',
-              toolbarItems: [
-                {
-                  type: 'button',
-                  options: {
-                    name: '이미지 불러오기',
-                    className: 'tui-load-button',
-                    icon: 'https://cdn-icons-png.flaticon.com/512/1829/1829543.png', // 불러오기 아이콘
-                    style: 'background-color: #FFFFFF;', // 배경색을 하얀색으로 설정
-                    onClick: handleLoadImage,
-                  },
-                },
-                {
-                  type: 'button',
-                  options: {
-                    name: '저장',
-                    className: 'tui-save-button',
-                    icon: 'https://cdn-icons-png.flaticon.com/512/786/786205.png', // 저장 아이콘
-                    style: 'background-color: #FFFFFF;', // 배경색을 하얀색으로 설정
-                    onClick: handleSaveImage,
-                  },
-                },
-              ],
             }}
             cssMaxHeight={500}
             cssMaxWidth={700}
