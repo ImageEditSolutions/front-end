@@ -1,3 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+svg[display="none"] {
+    /* 원하는 스타일 적용 */
+    display: none;
+}
