@@ -1,7 +1,8 @@
 import { default as ToastUIEditor } from '@toast-ui/react-image-editor';
 import PropTypes from 'prop-types';
 import { useRef } from 'react';
-import './ImageEdit.css';
+import { uploadImage } from '../../api/edit/editApi.js';
+// import './ImageEdit.css';
 
 const myTheme = {
   'common.bi.image': '',
@@ -33,6 +34,11 @@ const myTheme = {
   'submenu.activeLabel.fontWeight': 'bold', // 볼드체
 };
 
+const sendToServer = async () => {
+  const res = await uploadImage('123');
+  console.log(res);
+}
+
 const ImageEditorComponent = ({ imageUrl }) => {
   const editorRef = useRef(null);
 
@@ -42,7 +48,7 @@ const ImageEditorComponent = ({ imageUrl }) => {
 
     const link = document.createElement('a');
     link.href = dataURL;
-    link.download = 'edited-image.png'; 
+    link.download = 'edited-image.png';
     link.click();
   };
 
@@ -65,7 +71,7 @@ const ImageEditorComponent = ({ imageUrl }) => {
   };
 
   return (
-    <div className="flex-1 flex-grow rounded-lg shadow-lg p-4 h-full">
+    <div className="flex-1 flex-grow rounded-lg shadow-lg w-full h-full">
       {imageUrl ? (
         <>
           <ToastUIEditor
@@ -118,14 +124,15 @@ const ImageEditorComponent = ({ imageUrl }) => {
       ) : (
         <p className="text-center text-gray-500">이미지를 업로드해주세요.</p>
       )}
+      <button onClick={sendToServer}> 서버에 이미지 전송 </button>
+      {/*<button onClick={}> 이미지 받아오기 </button>*/}
     </div>
   );
 };
 
 // PropTypes를 이용한 props 검증
 ImageEditorComponent.propTypes = {
-  imageUrl: PropTypes.string,
+  imageUrl: PropTypes.string, // imageUrl은 문자열이어야 함
 };
 
 export default ImageEditorComponent;
-
