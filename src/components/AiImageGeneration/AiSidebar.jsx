@@ -13,25 +13,30 @@ export default function AiSidebar() {
   const openRatioModal = () => setIsRatioModalOpen(true);
   const closeRatioModal = () => setIsRatioModalOpen(false);
 
+
+
   return (
-    <div className="w-1/4 p-4 bg-gray-900">
+    <div className="w-1/4 p-4 bg-gray-800 rounded-lg mt-6 ml-6 w-72">
       {/* 이미지 설정 섹션 */}
-      <h1 className="text-white text-lg mb-4">Image Settings</h1>
+      <h1 className="text-white text-lg mb-14">Image Settings</h1>
 
       {/* 스타일 설정 */}
       <div className="mb-6">
-        <h2 className="text-white text-sm mb-2">스타일</h2>
+        <div className="flex ">
+          <h2 className="text-white text-sm mb-2">스타일</h2>
+          <button className="text-sm text-blue-400 ml-auto" onClick={openModal}>See All</button>
+        </div>
         <div className="flex items-center space-x-2">
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Nostyle.svg" alt="No Style" className="h-12 w-12" style={{ objectFit: 'contain' }} />
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/src/assets/prohibition.svg" alt="No Style" className="w-full h-full object-cover"
+                 style={{ objectFit: 'contain' }} />
           </div>
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Realistic.png" alt="Realistic" className="h-12 w-12" />
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/src/assets/Realistic.png" alt="Realistic" className="w-full h-full object-cover" />
           </div>
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Art.png" alt="Art" className="h-12 w-12" />
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center overflow-hidden">
+            <img src="/src/assets/Art.png" alt="Art" className="w-full h-full object-cover" />
           </div>
-          <a href="#" className="text-sm text-blue-400 ml-auto" onClick={openModal}>See All</a>
         </div>
       </div>
 
@@ -39,10 +44,10 @@ export default function AiSidebar() {
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">이미지 갯수</h2>
         <div className="flex space-x-2">
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">1</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">2</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">3</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">4</button>
+          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
+          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
+          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
+          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
         </div>
       </div>
 
