@@ -5,12 +5,10 @@ export default function AiStyleModal({ isOpen, onClose }) {
 
   // 이미지와 텍스트 데이터를 배열로 관리
   const styles = [
-    { src: "/src/assets/Nostyle.svg", alt: "No Style", label: "No style" },
-    { src: "/src/assets/Realistic.png", alt: "Realistic", label: "Realistic" },
-    { src: "/src/assets/Art.png", alt: "Art", label: "Art" },
-    { src: "/src/assets/Sketch.png", alt: "Sketch", label: "Sketch" },
-    { src: "/src/assets/Minimal.png", alt: "Minimal", label: "Minimal" },
-    { src: "/src/assets/Picasso.png", alt: "Picasso", label: "Picasso" },
+    { src: "/src/assets/prohibition.svg", alt: "No Style", label: "No style" },
+    { src: "/src/assets/gray.jpeg", alt: "Realistic", label: "Realistic" },
+    { src: "/src/assets/blur.jpeg", alt: "Art", label: "Art" },
+    { src: "/src/assets/darken.jpeg", alt: "Sketch", label: "Sketch" },
   ];
 
   return (
