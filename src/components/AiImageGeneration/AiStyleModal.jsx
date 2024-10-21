@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'; // PropTypes를 import
 
-export default function AiModal({ isOpen, onClose }) {
+export default function AiStyleModal({ isOpen, onClose }) {
   if (!isOpen) return null; // 모달이 열려있지 않으면 아무것도 렌더링하지 않음
 
   // 이미지와 텍스트 데이터를 배열로 관리
@@ -33,7 +33,7 @@ export default function AiModal({ isOpen, onClose }) {
 }
 
 // PropTypes 정의
-AiModal.propTypes = {
+AiStyleModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,  // isOpen은 반드시 boolean이어야 함
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
 };

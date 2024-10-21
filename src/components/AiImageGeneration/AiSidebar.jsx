@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import AiModal from './AiModal'; // 스타일 모달 컴포넌트 import
+import AiStyleModal from './AiStyleModal'; // 스타일 모달 컴포넌트 import
 import RatioModal from './RatioModal'; // 비율 모달 컴포넌트 import
 
 export default function AiSidebar() {
@@ -57,7 +57,7 @@ export default function AiSidebar() {
       </div>
 
       {/* 스타일 모달 */}
-      <AiModal isOpen={isModalOpen} onClose={closeModal} />
+      <AiStyleModal isOpen={isModalOpen} onClose={closeModal} />
 
       {/* 이미지 비율 모달 */}
       <RatioModal isOpen={isRatioModalOpen} onClose={closeRatioModal} />
