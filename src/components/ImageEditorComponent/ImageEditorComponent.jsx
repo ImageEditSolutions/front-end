@@ -42,34 +42,6 @@ const sendToServer = async () => {
 const ImageEditorComponent = ({ imageUrl }) => {
   const editorRef = useRef(null);
 
-  const handleSaveImage = () => {
-    const editorInstance = editorRef.current.getInstance();
-    const dataURL = editorInstance.toDataURL();
-
-    const link = document.createElement('a');
-    link.href = dataURL;
-    link.download = 'edited-image.png';
-    link.click();
-  };
-
-  const handleLoadImage = () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        const editorInstance = editorRef.current.getInstance();
-        editorInstance.loadImageFromURL(reader.result, 'Uploaded Image').then(() => {
-          console.log('이미지 불러오기 완료');
-        });
-      };
-      reader.readAsDataURL(file);
-    };
-    input.click();
-  };
-
   return (
     <div className="flex-1 flex-grow rounded-lg shadow-lg w-full h-full">
       {imageUrl ? (
@@ -89,28 +61,6 @@ const ImageEditorComponent = ({ imageUrl }) => {
                 height: '100%',
               },
               menuBarPosition: 'left',
-              toolbarItems: [
-                {
-                  type: 'button',
-                  options: {
-                    name: '이미지 불러오기',
-                    className: 'tui-load-button',
-                    icon: 'https://cdn-icons-png.flaticon.com/512/1829/1829543.png', // 불러오기 아이콘
-                    style: 'background-color: #FFFFFF;', // 배경색을 하얀색으로 설정
-                    onClick: handleLoadImage,
-                  },
-                },
-                {
-                  type: 'button',
-                  options: {
-                    name: '저장',
-                    className: 'tui-save-button',
-                    icon: 'https://cdn-icons-png.flaticon.com/512/786/786205.png', // 저장 아이콘
-                    style: 'background-color: #FFFFFF;', // 배경색을 하얀색으로 설정
-                    onClick: handleSaveImage,
-                  },
-                },
-              ],
             }}
             cssMaxHeight={500}
             cssMaxWidth={700}
