@@ -42,34 +42,6 @@ const sendToServer = async () => {
 const ImageEditorComponent = ({ imageUrl }) => {
   const editorRef = useRef(null);
 
-  const handleSaveImage = () => {
-    const editorInstance = editorRef.current.getInstance();
-    const dataURL = editorInstance.toDataURL();
-
-    const link = document.createElement('a');
-    link.href = dataURL;
-    link.download = 'edited-image.png';
-    link.click();
-  };
-
-  const handleLoadImage = () => {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.onchange = (event) => {
-      const file = event.target.files[0];
-      const reader = new FileReader();
-      reader.onload = () => {
-        const editorInstance = editorRef.current.getInstance();
-        editorInstance.loadImageFromURL(reader.result, 'Uploaded Image').then(() => {
-          console.log('이미지 불러오기 완료');
-        });
-      };
-      reader.readAsDataURL(file);
-    };
-    input.click();
-  };
-
   return (
     <div className="flex-1 flex-grow rounded-lg shadow-lg w-full h-full">
       {imageUrl ? (
