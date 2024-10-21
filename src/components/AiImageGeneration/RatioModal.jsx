@@ -22,18 +22,6 @@ export default function RatioModal({ isOpen, onClose }) {
             <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center text-white">
               3:4
             </div>
-            <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center text-white">
-              3:2
-            </div>
-            <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center text-white">
-              2:3
-            </div>
-            <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center text-white">
-              4:5
-            </div>
-            <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center text-white">
-              5:4
-            </div>
           </div>
           <button className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg" onClick={onClose}>닫기</button>
         </div>
