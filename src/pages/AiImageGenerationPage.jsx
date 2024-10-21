@@ -28,10 +28,7 @@ export default function AiImageGenerationPage() {
     <section className="bg-gray-900 min-w-[1120px] h-full">
       <Header />
       <main className="flex">
-        {/* 왼쪽: AiSidebar 컴포넌트 */}
         <AiSidebar />
-        
-        {/* 오른쪽: 기존 이미지 생성 패널 */}
         <div className="flex-1">
           <TextToImagePanel submitPrompt={submitPrompt} />
           <div className="flex justify-center items-center mt-16">
