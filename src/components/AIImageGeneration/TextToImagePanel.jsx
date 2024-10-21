@@ -1,7 +1,8 @@
+import PropTypes from 'prop-types'; // PropTypes를 import
 import Button from './Button.jsx';
 import { useState, useRef } from 'react';
 
-export default function TextToImagePanel({submitPrompt}) {
+export default function TextToImagePanel({ submitPrompt }) {
   const [isInputFilled, setIsInputFilled] = useState(false);
   const inputRef = useRef(null);
 
@@ -20,8 +21,7 @@ export default function TextToImagePanel({submitPrompt}) {
   const handleClick = () => {
     if (!isInputFilled) {
       alert("내용을 입력해주세요.");
-    };
-
+    }
     submitPrompt(inputRef.current);
   }
 
@@ -47,3 +47,8 @@ export default function TextToImagePanel({submitPrompt}) {
     </>
   )
 }
+
+// PropTypes를 이용한 props 검증
+TextToImagePanel.propTypes = {
+  submitPrompt: PropTypes.func.isRequired, // submitPrompt는 반드시 함수여야 하며 필수 prop입니다.
+};
