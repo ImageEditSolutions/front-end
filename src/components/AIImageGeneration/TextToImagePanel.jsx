@@ -37,12 +37,12 @@ export default function TextToImagePanel({submitPrompt}) {
             <img className="inline pl-1 w-max h-max" src="/src/assets/checkmark.svg" alt="checkmark" />
           </button>
         </div>
-        <div className="flex">
-          <Button text="정사각형 측면" />
-          <Button text="색상 설정" />
-          <Button text="조명 설정" />
-          <Button text="구도 설정" />
-        </div>
+        {/*<div className="flex">*/}
+        {/*  <Button text="정사각형 측면" />*/}
+        {/*  <Button text="색상 설정" />*/}
+        {/*  <Button text="조명 설정" />*/}
+        {/*  <Button text="구도 설정" />*/}
+        {/*</div>*/}
       </section>
     </>
   )
