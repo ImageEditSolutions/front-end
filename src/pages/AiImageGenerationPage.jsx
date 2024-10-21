@@ -3,6 +3,7 @@ import Header from '../components/Layout/Common/Header.jsx';
 import TextToImagePanel from '../components/AIImageGeneration/TextToImagePanel.jsx';
 import AiSidebar from '../components/AiImageGeneration/AiSidebar.jsx'; // 새로 분리한 컴포넌트 임포트
 import { useState } from 'react';
+import { requestAIImageGeneration } from '../api/ai/aiApi.js';
 
 export default function AiImageGenerationPage() {
   const [generatedImage, setGeneratedImage] = useState('/src/assets/ai-test-img.jpg');
@@ -10,8 +11,16 @@ export default function AiImageGenerationPage() {
   const submitPrompt = async (prompt) => {
     console.log('submit prompt: ', prompt);
     const res = await requestAIImageGeneration(prompt);
-    if (res.status === 200) {
-      setGeneratedImage(res.data.url);
+
+    if(res) {
+      const imageUrl = URL.createObjectURL(res);
+      if (imageUrl) {
+        console.log("이미지 생성 성공");
+        // 이미지를 화면에 렌더링하거나 처리하는 코드
+        setGeneratedImage(imageUrl);
+      }
+    } else {
+      console.log('실패')
     }
   }
 
