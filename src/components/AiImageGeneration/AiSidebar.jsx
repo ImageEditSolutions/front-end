@@ -22,18 +22,27 @@ export default function AiSidebar() {
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">스타일</h2>
         <div className="flex items-center space-x-2">
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Nostyle.svg" alt="No Style" className="h-12 w-12" style={{ objectFit: 'contain' }} />
+          {/* No Style */}
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <img src="/src/assets/Nostyle.svg" alt="No Style" className="h-full w-full object-cover" />
+            <span className="text-white text-xs mt-1">No style</span>
           </div>
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Realistic.png" alt="Realistic" className="h-12 w-12" />
+          {/* Realistic */}
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <img src="/src/assets/Realistic.png" alt="Realistic" className="h-full w-full object-cover" />
+            <span className="text-white text-xs mt-1">Realistic</span>
           </div>
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex items-center justify-center">
-            <img src="/src/assets/Art.png" alt="Art" className="h-12 w-12" />
+          {/* Art */}
+          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+            <img src="/src/assets/Art.png" alt="Art" className="h-full w-full object-cover" />
+            <span className="text-white text-xs mt-1">Art</span>
           </div>
           <a href="#" className="text-sm text-blue-400 ml-auto" onClick={openModal}>See All</a>
         </div>
       </div>
+
+
+
 
       {/* 이미지 개수 설정 */}
       <div className="mb-6">
