@@ -27,7 +27,7 @@ export default function TextToImagePanel({submitPrompt}) {
 
   return (
     <>
-      <section className="text-white mx-40">
+      <section className="text-white">
         <h1 className="text-2xl mb-[42px] mt-6">설명 프롬프트 작성하기</h1>
         <div className={`${isInputFilled ? 'h-[286px]' : 'h-[73px]'} bg-gray-800 rounded-lg flex justify-between w-auto px-5 mb-[23px] flex-initial`}>
           <img className="inline w-[27px] h-[27px] mt-[22px] flex-initial" src="/src/assets/prompt-img.svg" alt="prompt-img" />
