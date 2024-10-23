@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'; // PropTypes를 import
-import Button from './Button.jsx';
 import { useState, useRef } from 'react';
 
 export default function TextToImagePanel({ submitPrompt }) {
