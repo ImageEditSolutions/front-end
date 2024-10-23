@@ -2,7 +2,9 @@ import { useState } from 'react';
 import AiStyleModal from './AiStyleModal'; // 스타일 모달 컴포넌트 import
 import RatioModal from './RatioModal'; // 비율 모달 컴포넌트 import
 
-export default function AiSidebar({saveImageAttributes}) {
+import PropTypes from 'prop-types'; // PropTypes import
+
+export default function AiSidebar({ saveImageAttributes }) {
   const [isModalOpen, setIsModalOpen] = useState(false); // 스타일 모달 상태
   const [isRatioModalOpen, setIsRatioModalOpen] = useState(false); // 비율 모달 상태
 
@@ -47,10 +49,10 @@ export default function AiSidebar({saveImageAttributes}) {
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">이미지 갯수</h2>
         <div className="flex space-x-2">
-          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
-          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
-          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
-          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
         </div>
       </div>
 
@@ -72,3 +74,8 @@ export default function AiSidebar({saveImageAttributes}) {
     </div>
   );
 }
+
+// PropTypes 설정
+AiSidebar.propTypes = {
+  saveImageAttributes: PropTypes.func.isRequired, // 함수형 prop 타입 지정
+};
