@@ -7,30 +7,30 @@ import requestAIImageGeneration from '../api/ai/aiApi.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function AiImageGenerationPage() {
-  const [generatedImages, setGeneratedImages] = useState(['/src/assets/ai-test-img.jpg', '/src/assets/test.jpeg']);
+  const [generatedImages, setGeneratedImages] = useState(['/src/assets/ai-default.jpg']);
   const navigate = useNavigate();
   const imageAttrRef = useRef({text: '', style: '', numImages: 1});
   const selectedUrl = useRef(null);
 
-  // const submitPrompt = async (prompt) => {
-  //   console.log('submit prompt: ', prompt);
-  //
-  //   imageAttrRef.current = {
-  //     ...imageAttrRef.current,
-  //     text: prompt,
-  //   }
-  //
-  //   try {
-  //     const imageUrls = await requestAIImageGeneration(imageAttrRef.current);
-  //     if (imageUrls) {
-  //       console.log('이미지 생성 성공');
-  //       // 이미지를 화면에 렌더링하거나 처리하는 코드
-  //       setGeneratedImages(imageUrls);
-  //     }
-  //   } catch (error) {
-  //     console.error('Error generating images:', error);
-  //   }
-  // };
+  const submitPrompt = async (prompt) => {
+    console.log('submit prompt: ', prompt);
+
+    imageAttrRef.current = {
+      ...imageAttrRef.current,
+      text: prompt,
+    }
+
+    try {
+      const imageUrls = await requestAIImageGeneration(imageAttrRef.current);
+      if (imageUrls) {
+        console.log('이미지 생성 성공');
+        // 이미지를 화면에 렌더링하거나 처리하는 코드
+        setGeneratedImages(imageUrls);
+      }
+    } catch (error) {
+      console.error('Error generating images:', error);
+    }
+  };
 
   const saveImageAttributes = (attr) => {
     imageAttrRef.current = {
@@ -64,11 +64,11 @@ export default function AiImageGenerationPage() {
             <li className="flex flex-wrap justify-center gap-[10%] gap-y-12 items-center w-full">
               {generatedImages.length > 1 ?
                 generatedImages.map((image, i) => (
-                  <label key={`GeneratedImage${i}`}
-                         className={`relative rounded-2xl bg-cover bg-center bg-no-repeat cursor-pointer bg-[url(${image})] w-[45%] aspect-[16/9]`}
-                         style={{ backgroundImage: `url(${image})` }}>
-                    <input className="absolute right-4 top-4 " type="radio" name="generatedImage" onChange={handleChange} id={`generatedImage${i}`} />
-                  </label>
+                    <label key={`GeneratedImage${i}`}
+                           className={`relative rounded-2xl bg-cover bg-center bg-no-repeat cursor-pointer bg-[url(${image})] w-[45%] aspect-square`}
+                           style={{ backgroundImage: `url(${image})` }}>
+                      <input className="absolute right-4 top-4 " type="radio" name="generatedImage" onChange={handleChange} id={`generatedImage${i}`} />
+                    </label>
                   )
                 )
                 :
