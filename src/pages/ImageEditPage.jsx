@@ -22,7 +22,6 @@ const ImageEditPage = () => {
         <div className="flex-1">
           <ImageEditorComponent imageUrl={imageUrl} />
         </div>
-        {/* 새로운 섹션: 이전 작업 이미지 표시 */}
         <PreviousImages previousImages={previousImages} />
       </div>
     </div>
