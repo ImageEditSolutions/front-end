@@ -58,3 +58,4 @@ AiStyleModal.propTypes = {
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
   saveImageAttributes: PropTypes.func.isRequired, // saveImageAttributes는 반드시 함수여야 함
 };
+
