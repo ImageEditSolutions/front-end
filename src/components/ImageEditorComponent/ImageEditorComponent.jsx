@@ -84,5 +84,4 @@ const ImageEditorComponent = ({ imageUrl }) => {
 ImageEditorComponent.propTypes = {
   imageUrl: PropTypes.string, // imageUrl은 문자열이어야 함
 };
-
 export default ImageEditorComponent;
