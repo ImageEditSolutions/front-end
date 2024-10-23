@@ -1,19 +1,14 @@
 import { useState } from 'react';
 import AiStyleModal from './AiStyleModal'; // 스타일 모달 컴포넌트 import
-import RatioModal from './RatioModal'; // 비율 모달 컴포넌트 import
 
 import PropTypes from 'prop-types'; // PropTypes import
 
 export default function AiSidebar({ saveImageAttributes }) {
   const [isModalOpen, setIsModalOpen] = useState(false); // 스타일 모달 상태
-  const [isRatioModalOpen, setIsRatioModalOpen] = useState(false); // 비율 모달 상태
 
   // 모달 열기/닫기 함수
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
-
-  const openRatioModal = () => setIsRatioModalOpen(true);
-  const closeRatioModal = () => setIsRatioModalOpen(false);
 
   return (
     <div className="p-4 bg-gray-800 rounded-lg mt-6 ml-6 w-72 z-10">
@@ -56,21 +51,8 @@ export default function AiSidebar({ saveImageAttributes }) {
         </div>
       </div>
 
-      {/* 이미지 비율 설정 */}
-      <div className="mb-6">
-        <h2 className="text-white text-sm mb-2">이미지 비율</h2>
-        <div className="relative">
-          <button className="w-full bg-gray-700 text-white p-2 rounded-lg" onClick={openRatioModal}>
-            비율 선택
-          </button>
-        </div>
-      </div>
-
       {/* 스타일 모달 */}
       <AiStyleModal isOpen={isModalOpen} onClose={closeModal} />
-
-      {/* 이미지 비율 모달 */}
-      <RatioModal isOpen={isRatioModalOpen} onClose={closeRatioModal} />
     </div>
   );
 }
