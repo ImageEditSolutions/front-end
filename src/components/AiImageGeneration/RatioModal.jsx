@@ -42,3 +42,4 @@ RatioModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,  // isOpen은 반드시 boolean이어야 함
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
 };
+

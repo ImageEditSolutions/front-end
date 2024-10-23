@@ -2,7 +2,7 @@ import { useState } from 'react';
 import AiStyleModal from './AiStyleModal'; // 스타일 모달 컴포넌트 import
 import RatioModal from './RatioModal'; // 비율 모달 컴포넌트 import
 
-export default function AiSidebar() {
+export default function AiSidebar({saveImageAttributes}) {
   const [isModalOpen, setIsModalOpen] = useState(false); // 스타일 모달 상태
   const [isRatioModalOpen, setIsRatioModalOpen] = useState(false); // 비율 모달 상태
 
@@ -14,44 +14,43 @@ export default function AiSidebar() {
   const closeRatioModal = () => setIsRatioModalOpen(false);
 
   return (
-    <div className="w-1/4 p-4 bg-gray-900">
+    <div className="p-4 bg-gray-800 rounded-lg mt-6 ml-6 w-72 z-10">
       {/* 이미지 설정 섹션 */}
-      <h1 className="text-white text-lg mb-4">Image Settings</h1>
+      <h1 className="text-white text-lg mb-14">Image Settings</h1>
 
       {/* 스타일 설정 */}
       <div className="mb-6">
-        <h2 className="text-white text-sm mb-2">스타일</h2>
+        <div className="flex">
+          <h2 className="text-white text-sm mb-2">스타일</h2>
+          <button className="text-sm text-blue-400 ml-auto" onClick={openModal}>See All</button>
+        </div>
         <div className="flex items-center space-x-2">
           {/* No Style */}
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
             <img src="/src/assets/Nostyle.svg" alt="No Style" className="h-full w-full object-cover" />
-            <span className="text-white text-xs mt-1">No style</span>
+            <span className="absolute bottom-2 text-white text-xs mt-1">No style</span>
           </div>
           {/* Realistic */}
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
             <img src="/src/assets/Realistic.png" alt="Realistic" className="h-full w-full object-cover" />
-            <span className="text-white text-xs mt-1">Realistic</span>
+            <span className="absolute bottom-2 text-white text-xs mt-1">Realistic</span>
           </div>
           {/* Art */}
-          <div className="w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
             <img src="/src/assets/Art.png" alt="Art" className="h-full w-full object-cover" />
-            <span className="text-white text-xs mt-1">Art</span>
+            <span className="absolute bottom-2 text-white text-xs mt-1">Art</span>
           </div>
-          <a href="#" className="text-sm text-blue-400 ml-auto" onClick={openModal}>See All</a>
         </div>
       </div>
-
-
-
 
       {/* 이미지 개수 설정 */}
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">이미지 갯수</h2>
         <div className="flex space-x-2">
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">1</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">2</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">3</button>
-          <button className="w-12 h-12 bg-gray-700 text-white rounded-lg flex items-center justify-center">4</button>
+          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
+          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
+          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
+          <button onClick={ (e) => saveImageAttributes({numImages: Number(e.currentTarget.innerText) }) } className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
         </div>
       </div>
 
