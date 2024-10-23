@@ -1,24 +1,53 @@
-const apiKey = import.meta.env.VITE_HUGGINGFACE_TOKEN;
+// import axios from 'axios';
+const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
 
-// AI 관련 API
-export const requestAIImageGeneration = async (prompt) => {
-  try {
-    const response = await fetch(
-      "https://api-inference.huggingface.co/models/CompVis/stable-diffusion-v1-4",
-      {
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
-        method: "POST",
-        body: JSON.stringify({ inputs: prompt }),
-      }
-    );
-    if(response.ok) {
-      const result = await response.blob();
-      return result;
+// let requestCount = 0;
+//
+// const logRequest = () => {
+//   requestCount++;
+//   console.log(`API 요청 수: ${requestCount}`);
+// };
+//
+// axios.interceptors.request.use((config) => {
+//   logRequest();
+//   return config;
+// });
+
+const requestAIImageGeneration = async ({ text, style, numImages = 1 }) => {
+  const engineId = 'stable-diffusion-v1-6';
+  const apiHost = 'https://api.stability.ai';
+
+  if (!apiKey) throw new Error('Missing Stability API key.');
+
+  const requestBody = {
+    text_prompts: [{ text }],
+    cfg_scale: 7,
+    steps: 30,
+    samples: numImages, // 이미지 개수 설정
+    style_preset: style,
+  };
+
+  const response = await fetch(
+    `${apiHost}/v1/generation/${engineId}/text-to-image`,
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+        Authorization: `Bearer ${apiKey}`,
+      },
+      body: JSON.stringify(requestBody),
     }
-  } catch (err) {
-    console.error("API 호출 오류:", err);
+  );
+
+  console.log(response);
+
+  if (!response.ok) {
+    throw new Error(`Non-200 response: ${await response.text()}`);
   }
+
+  const responseJSON = await response.json();
+  return responseJSON.artifacts.map((artifact) => `data:image/png;base64,${artifact.base64}`);
 };
+
+export default requestAIImageGeneration;

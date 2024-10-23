@@ -50,7 +50,7 @@ export default function AiSidebar({saveImageAttributes}) {
       </div>
 
       {/* 스타일 모달 */}
-      <AiStyleModal isOpen={isModalOpen} onClose={closeModal} />
+      <AiStyleModal isOpen={isModalOpen} onClose={closeModal} saveImageAttributes={saveImageAttributes}/>
     </div>
   );
 }
