@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types'; // PropTypes를 import
-import Button from './Button.jsx';
 import { useState, useRef } from 'react';
 
 export default function TextToImagePanel({ submitPrompt }) {
@@ -21,7 +20,7 @@ export default function TextToImagePanel({ submitPrompt }) {
 
   return (
     <>
-      <section className="text-white mx-40">
+      <section className="text-white">
         <h1 className="text-2xl mb-[42px] mt-6">설명 프롬프트 작성하기</h1>
         <div className={`${isInputFilled ? 'h-[286px]' : 'h-[73px]'} bg-gray-800 rounded-lg flex justify-between w-auto px-5 mb-[23px] flex-initial`}>
           <img className="inline w-[27px] h-[27px] mt-[22px] flex-initial" src="/src/assets/prompt-img.svg" alt="prompt-img" />
@@ -30,12 +29,6 @@ export default function TextToImagePanel({ submitPrompt }) {
             <span>이미지 생성하기</span>
             <img className="inline w-[20px] h-[20px] ml-2" src="/src/assets/checkmark.svg" alt="checkmark" /> {/* 체크마크를 오른쪽에 배치 */}
           </button>
-        </div>
-        <div className="flex">
-          <Button text="정사각형 측면" />
-          <Button text="색상 설정" />
-          <Button text="조명 설정" />
-          <Button text="구도 설정" />
         </div>
       </section>
     </>
