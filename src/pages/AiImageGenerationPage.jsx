@@ -3,7 +3,6 @@ import Header from '../components/Layout/Common/Header.jsx';
 import TextToImagePanel from '../components/AIImageGeneration/TextToImagePanel.jsx';
 import AiSidebar from '../components/AiImageGeneration/AiSidebar.jsx'; // 새로 분리한 컴포넌트 임포트
 import { useRef, useState } from 'react';
-import requestAIImageGeneration from '../api/ai/aiApi.js';
 import { useNavigate } from 'react-router-dom';
 
 export default function AiImageGenerationPage() {
