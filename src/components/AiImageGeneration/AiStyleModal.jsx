@@ -7,7 +7,7 @@ const styles = [
   { src: "/src/assets/blur.jpeg", alt: "Blur", label: "Blur" },
   { src: "/src/assets/darken.jpeg", alt: "Darken", label: "Darken" },
   { src: "/src/assets/sepia.jpeg", alt: "Sepia", label: "Sepia" },
-  { src: "/src/assets/Sketch.jpeg", alt: "Sketch", label: "Sketch" },
+  { src: "/src/assets/sketch.jpeg", alt: "sketch", label: "sketch" },
 ];
 
 export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
