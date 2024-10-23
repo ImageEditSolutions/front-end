@@ -31,12 +31,6 @@ export default function TextToImagePanel({ submitPrompt }) {
             <img className="inline w-[20px] h-[20px] ml-2" src="/src/assets/checkmark.svg" alt="checkmark" /> {/* 체크마크를 오른쪽에 배치 */}
           </button>
         </div>
-        <div className="flex">
-          <Button text="정사각형 측면" />
-          <Button text="색상 설정" />
-          <Button text="조명 설정" />
-          <Button text="구도 설정" />
-        </div>
       </section>
     </>
   );
