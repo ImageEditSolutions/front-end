@@ -4,6 +4,7 @@ import TextToImagePanel from '../components/AIImageGeneration/TextToImagePanel.j
 import AiSidebar from '../components/AiImageGeneration/AiSidebar.jsx'; // 새로 분리한 컴포넌트 임포트
 import { useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import requestAIImageGeneration from '../api/ai/aiApi.js';
 
 export default function AiImageGenerationPage() {
   const [generatedImages, setGeneratedImages] = useState(['/src/assets/ai-default.jpg']);
