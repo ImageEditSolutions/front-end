@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import Header from '../components/ImageEditorComponent/Header';
-import Sidebar from '../components/ImageEditorComponent/Sidebar';
 import ImageEditorComponent from '../components/ImageEditorComponent/ImageEditorComponent';
 import PreviousImages from '../components/ImageEditorComponent/PreviousImages.jsx';
 
@@ -25,7 +24,6 @@ const ImageEditPage = () => {
         </div>
         {/* 새로운 섹션: 이전 작업 이미지 표시 */}
         <PreviousImages previousImages={previousImages} />
-        <Sidebar />
       </div>
     </div>
   );

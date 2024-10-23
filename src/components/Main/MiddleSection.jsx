@@ -1,4 +1,4 @@
-import MiddleBackground from '../../assets/MiddleSectionBackground.png';
+
 import AiImage1 from '../../assets/AiImage1.png';
 import AiImage2 from '../../assets/AiImage2.png';
 import AiImage3 from '../../assets/AiImage3.png';
@@ -7,44 +7,6 @@ import YArrow from '../../assets/YArrow.png';
 export default function MiddleSection() {
   return (
     <>
-      {/* 상단 섹션 */}
-      <section
-        className="bg-cover bg-center bg-[#9DD6E9]"
-        style={{ backgroundImage: `url(${MiddleBackground})` }}
-      >
-        <div className="py-12 px-6 text-center text-white">
-          <h1 className="text-4xl font-bold mb-4">
-            꿈꾸던 이미지를 찾기 위한 기능
-          </h1>
-          <p className="text-lg mb-8">
-            사람들이 가장 많이 사용하는 제너레이티브 AI 및 사진 편집 기능을
-            모았습니다.
-          </p>
-
-          {/* 버튼 섹션 */}
-          <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              이미지 제거기
-            </button>
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              AI 이미지 생성
-            </button>
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              배경 변경
-            </button>
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              AI 리터치
-            </button>
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              이미지 크기 조정
-            </button>
-            <button className="bg-[#D1F4FF] text-black w-60 h-12 rounded-lg shadow-md">
-              Photo Collage
-            </button>
-          </div>
-        </div>
-      </section>
-
       {/* 추가된 섹션 - 기대 이상의 놀라운 결과 */}
       <section className="py-12 px-6 bg-gray-900 text-center text-white">
         <h3 className="text-xl text-[#9DD6E9] mb-2">
