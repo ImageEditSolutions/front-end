@@ -2,7 +2,7 @@ import axios from 'axios';
 const API_SERVER_URL = import.meta.env.VITE_API_SERVER_URL;
 
 // 사용자별 이미지 API
-export const fetchImages = async () => {
+export const fetchImages = async (uploadId) => {
   try {
     const response = await axios({
       method: 'GET',
@@ -15,14 +15,14 @@ export const fetchImages = async () => {
   }
 };
 
-export const uploadImage = async (img_data, userID) => {
+export const uploadImage = async (uploadId, multipartFile) => {
   try {
     const response = await axios({
       method: 'POST',
       url: `${API_SERVER_URL}/api/upload`,
       data: {
-        img_data,
-        userID
+        uploadId,
+        multipartFile
       }
     })
   } catch (error) {
