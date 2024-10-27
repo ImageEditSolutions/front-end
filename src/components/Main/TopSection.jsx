@@ -1,5 +1,5 @@
-import birdRight from '../../assets/bridRight.png';
-import bridLeft from '../../assets/bridLeft.png';
+import birdRight from '../../assets/home/bridRight.png';
+import bridLeft from '../../assets/home/bridLeft.png';
 import { NavLink } from "react-router-dom";
 import ImageUploadBox from './ImageUploadBox'
 import ImageUploadButton from './ImageUploadButton';
