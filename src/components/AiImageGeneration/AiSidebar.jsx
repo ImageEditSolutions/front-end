@@ -44,10 +44,10 @@ export default function AiSidebar({ saveImageAttributes }) {
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">이미지 갯수</h2>
         <div className="flex space-x-2">
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
+          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
         </div>
       </div>
 
