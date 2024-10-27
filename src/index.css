@@ -6,3 +6,16 @@ svg[display="none"] {
     /* 원하는 스타일 적용 */
     display: none;
 }
+
+.tui-image-editor-header {
+    display: none;
+}
+
+.tui-image-editor-controls,
+.tui-image-editor-menu {
+    border-radius: 0 20px 0 0;
+}
+
+.tui-image-editor-container {
+    background-color: rgba(255, 255, 255, 0);
+}

@@ -1,32 +1,27 @@
-import { useState } from "react";
-import Modal from './Modal';
-
-const Header = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false); // 모달 상태 관리
-  const [uploadedId, setUploadedId] = useState(''); // 입력된 ID 저장
-
-  // 모달에서 ID 저장 시 호출되는 함수
-  const handleSaveId = (id) => {
-    setUploadedId(id);
-    console.log('저장된 ID:', id);
-  };
+const   Header = ({ actions, handleModalOpen }) => {
 
   return (
-    <header className="bg-gray-800 text-white p-4 text-center">
-      <h1 className="text-xl font-bold">이미지 편집 화면</h1>
-      <button
-        onClick={() => setIsModalOpen(true)} // 버튼 클릭 시 모달 열기
-        className="mt-4 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-      >
-        프로젝트 저장하기
+    <header className="bg-edit-gray text-white p-4 text-center flex gap-7 m-center rounded-bl-3xl px-8 h-14">
+      <button className="flex h-full gap-2" onClick={actions.CREATE_NEW_PROJECT}>
+        <img className="h-full object-cover" src="src/assets/edit/new.png" alt="newProject" />
+        <p>새로운 프로젝트</p>
       </button>
-
-      {/* 모달 창 */}
-      <Modal
-        isOpen={isModalOpen} // 모달 열림 여부
-        onClose={() => setIsModalOpen(false)} // 모달 닫기
-        onSubmit={handleSaveId} // ID 저장 처리
-      />
+      <button className="flex h-full gap-2" onClick={actions.LOAD_IMAGE}>
+        <img className="h-full object-cover" src="src/assets/edit/loadEditableImg.png" alt="loadEditableImg" />
+        <p>편집할 이미지 가져오기</p>
+      </button>
+      <button className="flex h-full gap-2" onClick={actions.DOWNLOAD_IMAGE}>
+        <img className="h-full object-cover" src="src/assets/edit/download.png" alt="download" />
+        <p>이미지 다운로드</p>
+      </button>
+      <button className="flex h-full gap-2" onClick={() => handleModalOpen('save_project')}>
+        <img className="h-full object-cover" src="src/assets/edit/save.png" alt="save" />
+        <p>프로젝트 저장하기</p>
+      </button>
+      <button className="flex h-full gap-2" onClick={() => {handleModalOpen('load_project')}}>
+        <img className="h-full object-cover" src="src/assets/edit/loadProject.png" alt="loadProject" />
+        <p>프로젝트 가져오기</p>
+      </button>
     </header>
   );
 };
