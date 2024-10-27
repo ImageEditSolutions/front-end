@@ -1,6 +1,6 @@
-import TopSection from "./Topsection";
-import MiddleSection from './MiddleSection'
-import BottomSection from "./BottomSection";
+import TopSection from "./TopSection.jsx";
+import MiddleSection from './MiddleSection.jsx'
+import BottomSection from "./BottomSection.jsx";
 
 export default function Main () {
     return (
