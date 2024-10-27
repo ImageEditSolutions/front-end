@@ -29,13 +29,13 @@ export default function AiSidebar({ saveImageAttributes }) {
           </div>
           {/* Realistic */}
           <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
-            <img src="/images/ai/style/Realistic.png" alt="Realistic" className="h-full w-full object-cover" />
-            <span className="absolute bottom-2 text-white text-xs mt-1">Realistic</span>
+            <img src="/images/ai/style/style_anime.jpg" alt="anime" className="h-full w-full object-cover" />
+            <span className="absolute bottom-2 text-white text-xs mt-1">Anime</span>
           </div>
           {/* Art */}
           <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
-            <img src="/images/ai/style/Art.png" alt="Art" className="h-full w-full object-cover" />
-            <span className="absolute bottom-2 text-white text-xs mt-1">Art</span>
+            <img src="/images/ai/style/style_photographic.jpg" alt="photographic" className="h-full w-full object-cover" />
+            <span className="absolute bottom-2 text-white text-xs mt-1">photographic</span>
           </div>
         </div>
       </div>

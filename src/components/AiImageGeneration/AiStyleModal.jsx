@@ -17,8 +17,8 @@ const styles = [
   { src: "/images/ai/style/style_modeling-compund_tree.jpg", alt: "modeling-compound", label: "modeling-compound" },
   { src: "/images/ai/style/style_neon-art.jpg", alt: "neon-punk", label: "neon-punk" },
   { src: "/images/ai/style/style_origami.jpg", alt: "origami", label: "origami" },
-  { src: "/images/ai/style/style_photographic.jpg", alt: "pixel-art", label: "pixel-art" },
-  { src: "/images/ai/style/style_picxel-art.jpg", alt: "photographic", label: "photographic" },
+  { src: "/images/ai/style/style_photographic.jpg", alt: "photographic", label: "photographic" },
+  { src: "/images/ai/style/style_picxel-art.jpg", alt: "pixel-art", label: "pixel-art" },
   { src: "/images/ai/style/style_tile-texture.jpg", alt: "tile-texture", label: "tile-texture" },
 ];
 
