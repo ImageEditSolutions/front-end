@@ -1,14 +1,14 @@
-import Cat from '../../assets/Cat.png';
-import Dragon from '../../assets/Dragon.png';
-import HeadphoneGirl from '../../assets/home/HeadphoneGirl.png';
-import Icecream from '../../assets/home/Icecream.png';
-import Menu1 from '../../assets/home/Menu1.png';
-import Menu2 from '../../assets/home/Menu2.png';
-import OverlappedGirl from '../../assets/home/OverlappedGirl.png';
-import PurpleGirl from '../../assets/home/PurpleGirl.png';
-import TwoBoy from '../../assets/home/TwoBoy.png';
-import TwoGirl from '../../assets/home/TwoGirl.png';
-import XArrow from '../../assets/home/XArrow.png';
+import Cat from '/images/home/Cat.png';
+import Dragon from '/images/home/Dragon.png';
+import HeadphoneGirl from '/images/home/HeadphoneGirl.png';
+import Icecream from '/images/home/Icecream.png';
+import Menu1 from '/images/home/Menu1.png';
+import Menu2 from '/images/home/Menu2.png';
+import OverlappedGirl from '/images/home/OverlappedGirl.png';
+import PurpleGirl from '/images/home/PurpleGirl.png';
+import TwoBoy from '/images/home/TwoBoy.png';
+import TwoGirl from '/images/home/TwoGirl.png';
+import XArrow from '/images/home/XArrow.png';
 
 export default function BottomSection() {
   return (

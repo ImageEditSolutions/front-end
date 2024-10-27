@@ -1,8 +1,7 @@
-
-import AiImage1 from '../../assets/home/AiImage1.png';
-import AiImage2 from '../../assets/home/AiImage2.png';
-import AiImage3 from '../../assets/home/AiImage3.png';
-import YArrow from '../../assets/home/YArrow.png';
+import AiImage1 from '/images/home/AiImage1.png';
+import AiImage2 from '/images/home/AiImage2.png';
+import AiImage3 from '/images/home/AiImage3.png';
+import YArrow from '/images/home/YArrow.png';
 
 export default function MiddleSection() {
   return (

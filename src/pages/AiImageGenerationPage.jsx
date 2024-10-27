@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import requestAIImageGeneration from '../api/ai/aiApi.js';
 
 export default function AiImageGenerationPage() {
-  const [generatedImages, setGeneratedImages] = useState(['/src/assets/ai-default.jpg']);
+  const [generatedImages, setGeneratedImages] = useState(['/images/ai/ai-default.jpg']);
   const navigate = useNavigate();
   const imageAttrRef = useRef({text: '', style: '', numImages: 1});
   const selectedUrl = useRef(null);

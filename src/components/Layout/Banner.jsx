@@ -1,4 +1,4 @@
-import RogoImage from '../../assets/RogoImage.png';
+import RogoImage from '/images/RogoImage.png';
 
 export default function Banner() {
   return (
