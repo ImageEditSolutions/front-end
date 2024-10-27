@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import ImageEditPage from "./pages/ImageEditPage";
-import AIImageGenerationPage from "./pages/AIImageGenerationPage";
+import AiImageGenerationPage from "./pages/AiImageGenerationPage";
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/ai-image-generation",
-    element: <AIImageGenerationPage />,  // "/ai-image-generation" 경로에선 AI 이미지 생성 페이지 렌더링
+    element: <AiImageGenerationPage />,  // "/ai-image-generation" 경로에선 AI 이미지 생성 페이지 렌더링
   },
 ]);
 
