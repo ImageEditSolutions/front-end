@@ -1,22 +1,13 @@
 import { useState, useEffect } from "react";
 import PropTypes from 'prop-types';
 
-const Modal = ({ isOpen, onClose, onSubmit }) => {
+const Modal = ({ onClose, handleProject, text }) => {
   const [inputValue, setInputValue] = useState('');
 
-  // 모달이 닫힐 때 입력 상태를 초기화
-  useEffect(() => {
-    if (!isOpen) {
-      setInputValue(''); // 모달이 닫히면 inputValue 초기화
-    }
-  }, [isOpen]);
-
-  if (!isOpen) return null; // 모달이 열리지 않은 경우 렌더링 하지 않음
-
-  const handleSubmit = () => {
-    onSubmit(inputValue); // 입력된 값을 부모 컴포넌트로 전달
-    onClose(); // 모달 닫기
-  };
+  const handleCloseModal = () => {
+    setInputValue(''); // 모달이 닫히면 inputValue 초기화
+    onClose();
+  }
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
@@ -35,13 +26,13 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
         <div className="border-t border-gray-600 my-4"></div>
         <div className="flex justify-between">
           <button
-            onClick={handleSubmit}
+            onClick={() => handleProject(inputValue)}
             className="w-1/2 text-white py-2 px-4 rounded hover:bg-gray-700 focus:outline-none mr-2 transition duration-300"
           >
-            저장하기
+            {text}
           </button>
           <button
-            onClick={onClose}
+            onClick={handleCloseModal}
             className="w-1/2 text-white py-2 px-4 rounded hover:bg-gray-700 focus:outline-none transition duration-300 border-l border-white"
           >
             취소
@@ -53,9 +44,8 @@ const Modal = ({ isOpen, onClose, onSubmit }) => {
 };
 
 Modal.propTypes = {
-  isOpen: PropTypes.bool.isRequired, // 모달이 열려 있는지 여부
   onClose: PropTypes.func.isRequired, // 모달을 닫는 함수
-  onSubmit: PropTypes.func.isRequired, // 입력 값을 제출하는 함수
+  handleProject: PropTypes.func.isRequired, // 입력 값을 제출하는 함수
 };
 
 export default Modal;
