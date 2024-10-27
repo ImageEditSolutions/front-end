@@ -13,7 +13,7 @@ const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
 //   return config;
 // });
 
-const requestAIImageGeneration = async ({ text, style, numImages = 1 }) => {
+const requestAIImageGeneration = async ({ text, style, numImages}) => {
   const engineId = 'stable-diffusion-v1-6';
   const apiHost = 'https://api.stability.ai';
 
@@ -23,8 +23,8 @@ const requestAIImageGeneration = async ({ text, style, numImages = 1 }) => {
     text_prompts: [{ text }],
     cfg_scale: 7,
     steps: 30,
-    samples: numImages, // 이미지 개수 설정
-    style_preset: style,
+    samples: numImages || 1, // 이미지 개수 설정
+    style_preset: style || 'photographic',
   };
 
   const response = await fetch(
