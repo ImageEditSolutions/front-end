@@ -34,6 +34,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      # env 설정
+      - name: .env setting
+        run: |
+          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
+
       - name: Install dependencies
         run: npm install
       - name: Build
@@ -56,11 +62,6 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
-
-      # env 설정
-      - name: .env setting
-        run: |
-          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
 
       # .env 파일 내용 확인 (디버깅용)
       - name: Verify .env file contents

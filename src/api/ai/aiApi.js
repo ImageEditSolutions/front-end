@@ -1,5 +1,5 @@
 // import axios from 'axios';
-const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
+const apiKey = process.env.VITE_STABILITY_API_KEY;
 
 // let requestCount = 0;
 //
