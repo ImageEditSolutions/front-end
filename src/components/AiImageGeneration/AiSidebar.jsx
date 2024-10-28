@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import AiStyleModal from './AiStyleModal'; // 스타일 모달 컴포넌트 import
-
 import PropTypes from 'prop-types'; // PropTypes import
 
 export default function AiSidebar({ saveImageAttributes }) {
@@ -23,17 +22,17 @@ export default function AiSidebar({ saveImageAttributes }) {
         </div>
         <div className="flex items-center space-x-2">
           {/* No Style */}
-          <div className="cursor-pointer relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden cursor-pointer hover:border-2 hover:border-sky-400 transition">
             <img src="/images/ai/style/Nostyle.svg" alt="No Style" className="h-full w-full object-cover" />
             <span className="absolute bottom-2 text-white text-xs mt-1">No style</span>
           </div>
           {/* Realistic */}
-          <div className="cursor-pointer relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden cursor-pointer hover:border-2 hover:border-sky-400 transition">
             <img src="/images/ai/style/style_anime.jpg" alt="anime" className="h-full w-full object-cover" />
             <span className="absolute bottom-2 text-white text-xs mt-1">Anime</span>
           </div>
           {/* Art */}
-          <div className="cursor-pointer relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden">
+          <div className="relative w-20 h-20 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden cursor-pointer hover:border-2 hover:border-sky-400 transition">
             <img src="/images/ai/style/style_photographic.jpg" alt="photographic" className="h-full w-full object-cover" />
             <span className="absolute bottom-2 text-white text-xs mt-1">photographic</span>
           </div>
@@ -44,10 +43,15 @@ export default function AiSidebar({ saveImageAttributes }) {
       <div className="mb-6">
         <h2 className="text-white text-sm mb-2">이미지 갯수</h2>
         <div className="flex space-x-2">
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">1</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">2</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">3</button>
-          <button onClick={(e) => saveImageAttributes({ numImages: Number(e.currentTarget.innerText) })} className="hover:border-4 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center">4</button>
+          {[1, 2, 3, 4].map(num => (
+            <button
+              key={num}
+              onClick={() => saveImageAttributes({ numImages: num })}
+              className="hover:border-2 hover:border-sky-400 w-12 h-12 bg-gray-700 text-white rounded-lg flex flex-1 items-center justify-center cursor-pointer transition"
+            >
+              {num}
+            </button>
+          ))}
         </div>
       </div>
 
