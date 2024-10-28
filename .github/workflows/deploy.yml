@@ -62,6 +62,10 @@ jobs:
         run: |
           echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
 
+      # .env 파일 내용 확인 (디버깅용)
+      - name: Verify .env file contents
+        run: cat .env
+
       # AWS 환경 변수 설정 및 배포
       - name: Deploy to AWS
         env:
