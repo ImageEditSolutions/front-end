@@ -36,7 +36,7 @@ export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
       <div className="bg-gray-800 p-8 rounded-lg">
-        <h2 className="text-white text-lg mb-4">모든 스타일</h2>
+        <h2 className="text-white text-lg mb-4 text-center">모든 스타일</h2> {/* 텍스트 가운데 정렬 */}
         <div className="grid grid-cols-6 gap-4">
           {/* 이미지와 텍스트를 반복 렌더링 */}
           {styles.map((style) => (
@@ -52,7 +52,7 @@ export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
                 alt={style.alt}
                 className="h-full w-full object-cover"
               />
-              <span className="text-white text-sm absolute bottom-2">
+              <span className="text-white text-sm absolute bottom-2 text-center">
                 {style.label}
               </span>
             </div>
@@ -75,3 +75,4 @@ AiStyleModal.propTypes = {
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
   saveImageAttributes: PropTypes.func.isRequired, // saveImageAttributes는 반드시 함수여야 함
 };
+
