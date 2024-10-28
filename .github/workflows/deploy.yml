@@ -57,6 +57,11 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-northeast-2
 
+      # env 설정
+      - name: .env setting
+        run: |
+          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
+
       # AWS 환경 변수 설정 및 배포
       - name: Deploy to AWS
         env:
@@ -76,13 +81,3 @@ jobs:
             --distribution-id "$DISTRIBUTION_ID" \
             --paths "/*" \
             --debug
-
-      # env 설정
-      - name: .env setting
-        run: |
-          # VITE_STABILITY_API_KEY 값 대체 또는 추가
-          if grep -q "^VITE_STABILITY_API_KEY=" .env; then
-          sed -i "s|^VITE_STABILITY_API_KEY=.*|VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}|" .env
-          else
-          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
-          fi
