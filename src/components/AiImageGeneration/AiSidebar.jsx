@@ -10,7 +10,7 @@ export default function AiSidebar({ saveImageAttributes }) {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="p-4 bg-gray-800 rounded-lg mt-6 ml-6 w-72 z-10">
+    <div className="p-4 bg-gray-800 rounded-lg mt-6 ml-6 w-72 z-10 hover:border-2 hover:border-sky-400 transition">
       {/* 이미지 설정 섹션 */}
       <h1 className="text-white text-lg mb-14">Image Settings</h1>
 
@@ -65,3 +65,4 @@ export default function AiSidebar({ saveImageAttributes }) {
 AiSidebar.propTypes = {
   saveImageAttributes: PropTypes.func.isRequired, // 함수형 prop 타입 지정
 };
+
