@@ -65,6 +65,7 @@ jobs:
           AWS_DEFAULT_REGION: ap-northeast-2
         run: npm run deploy-dev
 
+      # 캐시 무효화
       - name: CloudFront invalidation
         env:
           DISTRIBUTION_ID: ${{ secrets.DISTRIBUTION_ID }}
@@ -74,5 +75,14 @@ jobs:
           aws cloudfront create-invalidation \
             --distribution-id "$DISTRIBUTION_ID" \
             --paths "/*" \
-            --debug 
+            --debug
 
+      # env 설정
+      - name: .env setting
+        run: |
+          # VITE_STABILITY_API_KEY 값 대체 또는 추가
+          if grep -q "^VITE_STABILITY_API_KEY=" .env; then
+          sed -i "s|^VITE_STABILITY_API_KEY=.*|VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}|" .env
+          else
+          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
+          fi
