@@ -26,10 +26,20 @@ const styles = [
 export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
   const [selectedStyle, setSelectedStyle] = useState(''); // 선택된 스타일 상태
 
+  // 스타일 선택 핸들러
   const handleClick = (e) => {
     const styleLabel = e.currentTarget.id;
     setSelectedStyle(styleLabel); // 선택된 스타일 업데이트
-    saveImageAttributes({ style: styleLabel });
+  };
+
+  // 선택된 스타일 적용 핸들러
+  const applyStyle = () => {
+    if (selectedStyle) {
+      saveImageAttributes({ style: selectedStyle });
+      alert(`${selectedStyle} 스타일이 적용되었습니다.`);
+    } else {
+      alert("스타일을 먼저 선택해주세요.");
+    }
   };
 
   if (!isOpen) return null; // 모달이 열려있지 않으면 아무것도 렌더링하지 않음
@@ -58,12 +68,20 @@ export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
             </div>
           ))}
         </div>
-        <button
-          className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg"
-          onClick={onClose}
-        >
-          닫기
-        </button>
+        <div className="flex justify-center mt-4 space-x-4">
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded-lg"
+            onClick={applyStyle}
+          >
+            스타일 적용하기
+          </button>
+          <button
+            className="bg-gray-500 text-white px-4 py-2 rounded-lg"
+            onClick={onClose}
+          >
+            닫기
+          </button>
+        </div>
       </div>
     </div>
   );
@@ -75,4 +93,3 @@ AiStyleModal.propTypes = {
   onClose: PropTypes.func.isRequired, // onClose는 반드시 함수여야 함
   saveImageAttributes: PropTypes.func.isRequired, // saveImageAttributes는 반드시 함수여야 함
 };
-
