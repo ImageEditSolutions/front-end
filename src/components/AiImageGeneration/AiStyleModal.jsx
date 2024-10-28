@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types'; // PropTypes import
+import { useState } from 'react';
 
 // 이미지와 텍스트 데이터를 배열로 관리
 const styles = [
@@ -23,8 +24,11 @@ const styles = [
 ];
 
 export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
+  const [selectedStyle, setSelectedStyle] = useState(''); // 선택된 스타일 상태
+
   const handleClick = (e) => {
     const styleLabel = e.currentTarget.id;
+    setSelectedStyle(styleLabel); // 선택된 스타일 업데이트
     saveImageAttributes({ style: styleLabel });
   };
 
@@ -40,7 +44,8 @@ export default function AiStyleModal({ isOpen, onClose, saveImageAttributes }) {
               onClick={handleClick}
               id={style.label}
               key={style.label}
-              className="max-w-28 h-24 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden relative cursor-pointer"
+              className={`max-w-28 h-24 bg-gray-700 rounded-lg flex flex-col items-center justify-center overflow-hidden relative cursor-pointer 
+                transition ${selectedStyle === style.label ? "border-2 border-sky-400" : "hover:border-2 hover:border-sky-400"}`}
             >
               <img
                 src={style.src}
