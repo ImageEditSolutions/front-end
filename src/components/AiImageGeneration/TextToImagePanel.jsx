@@ -12,14 +12,14 @@ export default function TextToImagePanel({ submitPrompt }) {
     setIsInputFilled(isFilled);
     inputRef.current = inputValue;
 
-    // 한글이 입력되면 하늘색 테두리, 영어가 입력되면 연한 붉은색 테두리
-    if (/^[가-힣\s]+$/.test(inputValue)) {
-      setBorderColor('border-sky-400'); // 한글일 경우 하늘색
-    } else if (/^[a-zA-Z\s]+$/.test(inputValue)) {
-      setBorderColor('border-red-300'); // 영어일 경우 연한 붉은색
-    } else {
-      setBorderColor(''); // 조건에 맞지 않으면 테두리 없음
-    }
+    // // 한글이 입력되면 하늘색 테두리, 영어가 입력되면 연한 붉은색 테두리
+    // if (/^[가-힣\s]+$/.test(inputValue)) {
+    //   setBorderColor('border-sky-400'); // 한글일 경우 하늘색
+    // } else if (/^[a-zA-Z\s]+$/.test(inputValue)) {
+    //   setBorderColor('border-red-300'); // 영어일 경우 연한 붉은색
+    // } else {
+    //   setBorderColor(''); // 조건에 맞지 않으면 테두리 없음
+    // }
   };
 
   const handleClick = () => {
