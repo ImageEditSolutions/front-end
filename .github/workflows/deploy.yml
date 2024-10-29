@@ -35,10 +35,10 @@ jobs:
         with:
           node-version: 20
 
-      # env 설정
-      - name: .env setting
+      - name: Set .env file
         run: |
-          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" >> .env
+          touch .env
+          echo "${{ secrets.VITE_STABILITY_API_KEY }}" > .env
 
       - name: Install dependencies
         run: npm install
