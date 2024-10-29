@@ -1,4 +1,4 @@
-import RogoImage from '/images/RogoImage.png';
+import LogoImage from '/images/logo.png';
 
 
 export default function Header() {
@@ -9,7 +9,7 @@ export default function Header() {
     >
       {/* 로고와 텍스트 부분 */}
       <div className="flex items-center gap-2">
-          <img src={RogoImage} alt="Logo" className="h-10" />
+          <img src={LogoImage} alt="Logo" className="h-10" />
           <span className="text-white text-2xl font-bold">PicShare</span>
       </div>
 
