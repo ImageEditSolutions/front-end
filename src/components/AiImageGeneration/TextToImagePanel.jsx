@@ -3,7 +3,7 @@ import { useState, useRef } from 'react';
 
 export default function TextToImagePanel({ submitPrompt }) {
   const [isInputFilled, setIsInputFilled] = useState(false);
-  const [borderColor, setBorderColor] = useState(''); // 테두리 색상 상태
+  // const [borderColor, setBorderColor] = useState(''); // 테두리 색상 상태
   const inputRef = useRef(null);
 
   const handleChange = (event) => {
@@ -40,7 +40,7 @@ export default function TextToImagePanel({ submitPrompt }) {
         <textarea
           ref={inputRef}
           onChange={handleChange}
-          className={`flex-1 h-[73px] w-max bg-gray-800 resize-none py-[22px] mx-[27px] outline-0 rounded-lg border ${borderColor}`}
+          className={`flex-1 h-[73px] w-max bg-gray-800 resize-none py-[22px] mx-[27px] outline-0 rounded-lg`}
           placeholder="떠오른 영감을 자유롭게 작성해주세요."
         ></textarea>
         
