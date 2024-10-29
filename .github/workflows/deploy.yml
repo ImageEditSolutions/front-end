@@ -38,7 +38,7 @@ jobs:
       - name: Set .env file
         run: |
           touch .env
-          echo "${{ secrets.VITE_STABILITY_API_KEY }}" > .env
+          echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" > .env
 
       - name: Install dependencies
         run: npm install
