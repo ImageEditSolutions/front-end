@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import Header from '../components/ImageEditorComponent/Header';
 import { default as ToastUIEditor } from '@toast-ui/react-image-editor';
@@ -16,6 +16,7 @@ const previousImages = [
 
 
 const ImageEditPage = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { imageUrl } = location.state || {}; // 전달된 이미지 URL을 받음
 
@@ -76,10 +77,18 @@ const ImageEditPage = () => {
 
   return (
     <div className="flex flex-col bg-black h-screen w-screen">
-      <Header
-        actions={actions}
-        handleModalOpen={handleModalOpen}
-      />
+      <div className="flex">
+        <img
+          src="/images/logo.png"
+          alt="logo"
+          className="h-11 m-5 cursor-pointer"
+          onClick={() => navigate('/')}
+        />
+        <Header
+          actions={actions}
+          handleModalOpen={handleModalOpen}
+        />
+      </div>
       <div className="flex flex-grow p-4 space-x-4">
           <ToastUIEditor
             ref={editorRef}
