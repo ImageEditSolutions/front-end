@@ -6,7 +6,7 @@ export const downloadProject = async (uploadId) => {
   try {
     const response = await axios({
       method: 'GET',
-      url: `${API_SERVER_URL}/api/download`,
+      url: `http://${API_SERVER_URL}/api/download`,
       params: {
         uploadId: uploadId
       },
@@ -27,15 +27,26 @@ export const uploadImage = async (uploadId, blob) => {
   try {
     const response = await axios({
       method: 'POST',
-      url: `${API_SERVER_URL}/api/upload`,
+      url: `http://${API_SERVER_URL}/api/upload`,
       headers: {
         'Content-Type': 'multipart/form-data',
       },
       data: formData,
     })
-    console.log(response);
-    return response;
+
+    if (response.status === 200) {
+      return 'success';
+    }
   } catch (error) {
-    console.error("Error uploading image", error);
+
+    if(error.status === 409) {
+      console.log('다른 아이디를 입력해주세요.');
+    } else if(error.status === 400) {
+      console.log(error.message);
+    } else if(error.status === 500) {
+      console.log(error.message);
+    } else {
+      console.error("Error uploading image", error);
+    }
   }
 }

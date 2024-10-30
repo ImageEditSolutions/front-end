@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import 'tui-image-editor/dist/tui-image-editor.css';
 import Header from '../components/ImageEditorComponent/Header';
 import { default as ToastUIEditor } from '@toast-ui/react-image-editor';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import myTheme from '../ui/theme/myTheme.js';
 import {CreateNewProject, SaveProject, LoadProject, DownloadImage, LoadImage} from '../tools'
 import Modal from '../components/ImageEditorComponent/Modal.jsx';
@@ -25,6 +25,8 @@ const ImageEditPage = () => {
   const [isSaveModalOpen, setIsSaveModalOpen] = useState(false);
   const [isLoadModalOpen, setIsLoadModalOpen] = useState(false);
   const [projectData, setProjectData] = useState({});
+  const [imgData, setImgData] = useState(imageUrl || null);
+
 
   const handleDownloadImage = () => {
     if (editorRef.current ) {
@@ -41,15 +43,25 @@ const ImageEditPage = () => {
   const handleSaveProject = async (id) => {
     if (editorRef.current ) {
       const res = await SaveProject(editorRef.current.imageEditorInst, id);
-      if(res === "success") setIsSaveModalOpen(false);
+      if(res === "success") {
+        console.log('이미지 저장 완료');
+        setIsSaveModalOpen(false);
+      }
     }
   }
 
   const handleLoadProject = async (id) => {
     const data = await LoadProject(id);
 
+    // 프로젝트 저장하기 기능 시 사용
     console.log('project load data', data);
     setProjectData(data);
+
+    // 이미지 불러오기 기능 시 사용
+    console.log('project loaded', data.imageUrl);
+    setImgData(data.imageUrl);
+
+    // await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
   }
 
   const handleLoadImages = () => {
@@ -90,11 +102,12 @@ const ImageEditPage = () => {
         />
       </div>
       <div className="flex flex-grow p-4 space-x-4">
+        {imgData &&
           <ToastUIEditor
             ref={editorRef}
             includeUI={{
               loadImage: {
-                path: imageUrl,
+                path: imgData,
                 name: 'Uploaded Image',
               },
               theme: myTheme, // 커스텀 테마 적용
@@ -111,6 +124,7 @@ const ImageEditPage = () => {
               rotatingPointOffset: 70,
             }}
           />
+        }
         {/*<PreviousImages previousImages={previousImages} />*/}
       </div>
 
@@ -131,7 +145,6 @@ const ImageEditPage = () => {
           handleProject={actions.LOAD_PROJECT} // ID 저장 처리
         />
       }
-
     </div>
   );
 };
