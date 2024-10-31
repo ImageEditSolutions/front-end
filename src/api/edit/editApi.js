@@ -1,31 +1,62 @@
 import axios from 'axios';
 const API_SERVER_URL = import.meta.env.VITE_API_SERVER_URL;
 
-// 사용자별 이미지 API
-export const fetchImages = async () => {
+// 프로젝트 가져오기
+export const downloadProject = async (uploadId) => {
   try {
     const response = await axios({
       method: 'GET',
       url: `${API_SERVER_URL}/api/download`,
+      params: {
+        uploadId: uploadId
+      },
     })
 
-    return response.data;
+    console.log(`Request URL: ${API_SERVER_URL}/api/download?uploadId=${uploadId}`);
+
+    return response;
   } catch (error) {
-    console.error("Error fetching image", error);
+    if (error.status === 400) {
+      // 업로드 아이디 없음
+      console.log(error.message);
+    } else if (error.status === 404) {
+      // 업로드 아이디를 찾을 수 없음
+      console.log(error.message);
+    } else {
+      console.error("Error fetching image", error);
+    }
   }
 };
 
-export const uploadImage = async (img_data, userID) => {
+// 프로젝트 업로드 하기
+export const uploadImage = async (uploadId, blob) => {
+  const formData = new FormData();
+  formData.append('uploadId', uploadId);
+  formData.append('multipartFile', blob, 'image.png');
+
   try {
     const response = await axios({
       method: 'POST',
       url: `${API_SERVER_URL}/api/upload`,
-      data: {
-        img_data,
-        userID
-      }
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      data: formData,
     })
+
+    if (response.status === 200) {
+      return 'success';
+    }
   } catch (error) {
-    console.error("Error uploading image", error);
+
+    if(error.status === 409) {
+      console.log('다른 아이디를 입력해주세요.');
+    } else if(error.status === 400) {
+      console.log(error.message);
+    } else if(error.status === 500) {
+      console.log(error.message);
+    } else {
+      console.error("Error uploading image", error);
+    }
   }
 }
