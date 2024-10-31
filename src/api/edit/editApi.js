@@ -11,6 +11,7 @@ export const downloadProject = async (uploadId) => {
         uploadId: uploadId
       },
     })
+    console.log('download res\n ', response);
 
     return response;
   } catch (error) {
@@ -41,6 +42,8 @@ export const uploadImage = async (uploadId, blob) => {
       },
       data: formData,
     })
+
+    console.log('upload res\n ', response);
 
     if (response.status === 200) {
       return 'success';
