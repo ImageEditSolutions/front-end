@@ -61,7 +61,7 @@ const ImageEditPage = () => {
     console.log('project loaded', data.imageUrl);
     setImgData(data.imageUrl);
 
-    // await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
+    await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
   }
 
   const handleLoadImages = () => {

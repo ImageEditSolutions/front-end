@@ -12,9 +12,19 @@ export const downloadProject = async (uploadId) => {
       },
     })
 
+    console.log(`Request URL: ${API_SERVER_URL}/api/download?uploadId=${uploadId}`);
+
     return response;
   } catch (error) {
-    console.error("Error fetching image", error);
+    if (error.status === 400) {
+      // 업로드 아이디 없음
+      console.log(error.message);
+    } else if (error.status === 404) {
+      // 업로드 아이디를 찾을 수 없음
+      console.log(error.message);
+    } else {
+      console.error("Error fetching image", error);
+    }
   }
 };
 
