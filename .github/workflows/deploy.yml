@@ -39,7 +39,7 @@ jobs:
         run: |
           touch .env
           echo "VITE_STABILITY_API_KEY=${{ secrets.VITE_STABILITY_API_KEY }}" > .env
-          echo "VITE_API_SERVER_URL=${{ secrets.VITE_API_SERVER_URL }}" > .env
+#          echo "VITE_API_SERVER_URL=${{ secrets.VITE_API_SERVER_URL }}" > .env
 
       - name: Install dependencies
         run: npm install
@@ -87,3 +87,7 @@ jobs:
       # .env 파일 내용 확인 (디버깅용)
       - name: Verify .env file contents
         run: cat .env
+
+      - name: Check API_KEY in .env
+        run: |
+          grep "VITE_STABILITY_API_KEY" .env || echo "VITE_STABILITY_API_KEY not found in .env"
