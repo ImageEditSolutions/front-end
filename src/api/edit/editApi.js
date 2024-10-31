@@ -6,13 +6,11 @@ export const downloadProject = async (uploadId) => {
   try {
     const response = await axios({
       method: 'GET',
-      url: `${API_SERVER_URL}/api/download`,
+      url: "/api/download",
       params: {
         uploadId: uploadId
       },
     })
-
-    console.log(`Request URL: ${API_SERVER_URL}/api/download?uploadId=${uploadId}`);
 
     return response;
   } catch (error) {
@@ -37,7 +35,7 @@ export const uploadImage = async (uploadId, blob) => {
   try {
     const response = await axios({
       method: 'POST',
-      url: `${API_SERVER_URL}/api/upload`,
+      url: "/api/upload",
       headers: {
         'Content-Type': 'multipart/form-data',
       },
