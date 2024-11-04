@@ -29,7 +29,7 @@ const ImageEditPage = () => {
 
 
   const handleDownloadImage = () => {
-    if (editorRef.current ) {
+    if (editorRef.current) {
       DownloadImage(editorRef.current.imageEditorInst);
     }
   };

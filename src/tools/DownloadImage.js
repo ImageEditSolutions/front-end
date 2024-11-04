@@ -3,7 +3,7 @@ const DownloadImage = (editor ) => {
   const dataURL = editor.toDataURL({
     format: 'png',
     quality: 1,
-    multiplier: 10,
+    multiplier: 1,  //fixme 원래 10
   });
 
   // 파일 이름 생성

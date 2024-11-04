@@ -8,11 +8,11 @@ const   Header = ({ actions, handleModalOpen }) => {
     fileInputRef.current.click();
   }
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files[0];
     if (file) {
       const uploadedImage = URL.createObjectURL(file);
-      actions.LOAD_IMAGE(uploadedImage);
+      await actions.LOAD_IMAGE(uploadedImage);
     }
   }
 
