@@ -2,7 +2,7 @@
 import error from 'eslint-plugin-react/lib/util/error.js';
 
 const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
-const API_SERVER_URL = import.meta.env.VITE_STABILITY_API_URL;
+const API_SERVER_URL = import.meta.env.VITE_API_SERVER_URL;
 
 // let requestCount = 0;
 //
@@ -57,7 +57,7 @@ export const requestAIImageGeneration = async ({ text, style, numImages}) => {
   try {
     const translatedText = await translatePrompt(text);
     if (translatedText) {
-      await handleSubmit({ translatedText, style, numImages });
+      return await handleSubmit({ text: translatedText, style: style, numImages: numImages });
     }
   } catch (error) {
     console.error("이미지 생성 요청 오류: " , error);
@@ -78,7 +78,7 @@ export const translatePrompt = async (prompt) => {
 
     const data = await response.json();
     console.log('translatePrompt', data);
-    return data.translation[0].text;
+    return data.translations[0].text;
   } catch (error) {
     console.log("번역 API 요청 오류:", error);
     return null;
