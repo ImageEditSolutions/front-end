@@ -1,13 +1,34 @@
+import { useRef } from 'react';
+
 const   Header = ({ actions, handleModalOpen }) => {
+  const fileInputRef = useRef(null);
+
+  const handleClickFetchImage = () => {
+    fileInputRef.current.click();
+  }
+
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      const uploadedImage = URL.createObjectURL(file);
+      actions.LOAD_IMAGE(uploadedImage);
+    }
+  }
 
   return (
     <header className="bg-edit-gray text-white p-4 text-center flex gap-7 m-center rounded-bl-3xl px-8 h-14">
-      <button className="flex h-full gap-2" onClick={actions.CREATE_NEW_PROJECT}>
-        <img className="h-full object-cover" src="/images/edit/new.png" alt="newProject" />
-        <p>새로운 프로젝트</p>
-      </button>
-      <button className="flex h-full gap-2" onClick={actions.LOAD_IMAGE}>
+      {/*<button className="flex h-full gap-2" onClick={actions.CREATE_NEW_PROJECT}>*/}
+      {/*  <img className="h-full object-cover" src="/images/edit/new.png" alt="newProject" />*/}
+      {/*  <p>새로운 프로젝트</p>*/}
+      {/*</button>*/}
+      <button className="flex h-full gap-2" onClick={handleClickFetchImage}>
         <img className="h-full object-cover" src="/images/edit/loadEditableImg.png" alt="loadEditableImg" />
+        <input
+          type="file"
+          ref={fileInputRef}
+          className="hidden"
+          onChange={handleFileChange}
+        />
         <p>편집할 이미지 가져오기</p>
       </button>
       <button className="flex h-full gap-2" onClick={actions.DOWNLOAD_IMAGE}>
