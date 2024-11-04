@@ -2,6 +2,7 @@
 import error from 'eslint-plugin-react/lib/util/error.js';
 
 const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
+const API_SERVER_URL = import.meta.env.VITE_STABILITY_API_URL;
 
 // let requestCount = 0;
 //
@@ -15,7 +16,7 @@ const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
 //   return config;
 // });
 
-const requestAIImageGeneration = async ({ text, style, numImages}) => {
+const handleSubmit = async ({ text, style, numImages}) => {
   const engineId = 'stable-diffusion-v1-6';
   const apiHost = 'https://api.stability.ai';
 
@@ -52,41 +53,36 @@ const requestAIImageGeneration = async ({ text, style, numImages}) => {
   return responseJSON.artifacts.map((artifact) => `data:image/png;base64,${artifact.base64}`);
 };
 
-// const handleSubmit = async () => {
-//   if (attachedFile) {
-//     const translatedText = await translatePrompt();
-//     if (translatedText) {
-//       await callStabilityAI(translatedText);
-//     }
-//   } else {
-//     try {
-//
-//     }
-//   } catch (error) {
-//     console.error("이미지 생성 요청 오류: " , error);
-//   }
-// }
-//
-// const translatePrompt = async () => {
-//   try {
-//     const response = await fetch('https://api.stability.ai', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({prompt}),
-//     });
-//
-//     if (!response.ok) throw new Error('번역 오류: ' + response);
-//
-//     const data = await response.json();
-//     const translatedText = data.translation[0].text;
-//     setTranslatedPrompt(translatedText);
-//     return translatedText;
-//   } catch (error) {
-//     console.log("번역 API 요청 오류:", error);
-//     return null;
-//   }
-// }
+export const requestAIImageGeneration = async ({ text, style, numImages}) => {
+  try {
+    const translatedText = await translatePrompt(text);
+    if (translatedText) {
+      await handleSubmit({ translatedText, style, numImages });
+    }
+  } catch (error) {
+    console.error("이미지 생성 요청 오류: " , error);
+  }
+}
+
+export const translatePrompt = async (prompt) => {
+  try {
+    const response = await fetch(`${API_SERVER_URL}/image-ai/translate`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({prompt}),
+    });
+
+    if (!response.ok) throw new Error('번역 오류: ' + response);
+
+    const data = await response.json();
+    console.log('translatePrompt', data);
+    return data.translation[0].text;
+  } catch (error) {
+    console.log("번역 API 요청 오류:", error);
+    return null;
+  }
+}
 
 export default requestAIImageGeneration;
