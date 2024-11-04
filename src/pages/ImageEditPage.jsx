@@ -4,7 +4,7 @@ import Header from '../components/ImageEditorComponent/Header';
 import { default as ToastUIEditor } from '@toast-ui/react-image-editor';
 import { useEffect, useRef, useState } from 'react';
 import myTheme from '../ui/theme/myTheme.js';
-import {CreateNewProject, SaveProject, LoadProject, DownloadImage, LoadImage} from '../tools'
+import {CreateNewProject, SaveProject, LoadProject, DownloadImage} from '../tools'
 import Modal from '../components/ImageEditorComponent/Modal.jsx';
 
 // 이전 작업 이미지 목록 (임시로 예시 이미지 경로 사용)
@@ -64,9 +64,9 @@ const ImageEditPage = () => {
     await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
   }
 
-  const handleLoadImages = () => {
+  const handleLoadImages = async (file) => {
     if (editorRef.current ) {
-      LoadImage(editorRef.current.imageEditorInst);
+      await editorRef.current.imageEditorInst.loadImageFromURL(file, 'loadImage' );
     }
   }
 

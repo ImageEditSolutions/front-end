@@ -1,14 +1,16 @@
 import LogoImage from '/images/logo.png';
-
+import { useNavigate } from 'react-router-dom';
 
 export default function Header() {
+  const nav = useNavigate();
+
   return (
     <header
       className="w-full h-[136px] bg-black flex items-center justify-between px-8"
       style={{padding:"0 15%"}} // 임시 수정.
     >
       {/* 로고와 텍스트 부분 */}
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 cursor-pointer" onClick={() => nav('/')}>
           <img src={LogoImage} alt="Logo" className="h-10" />
           <span className="text-white text-2xl font-bold">PicShare</span>
       </div>
