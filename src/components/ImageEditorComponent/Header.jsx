@@ -1,3 +1,4 @@
+
 import { useRef } from 'react';
 
 const   Header = ({ actions, handleModalOpen }) => {
@@ -46,6 +47,7 @@ const   Header = ({ actions, handleModalOpen }) => {
     </header>
   );
 };
+>>>>>>> d7c063c4c48d8bceaf80c2a9651a08eb4c32d0f1
 
 export default Header;
 

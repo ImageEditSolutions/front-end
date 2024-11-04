@@ -27,6 +27,10 @@ export const downloadProject = async (uploadId) => {
   }
 };
 
+
+// editApi.js 파일 상단
+console.log(" [DEBUG] - API 서버 URL:", API_SERVER_URL);
+
 // 프로젝트 업로드 하기
 export const uploadImage = async (uploadId, blob) => {
   const formData = new FormData();
