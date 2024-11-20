@@ -41,7 +41,7 @@ const handleSubmit = async ({ text, style, numImages}) => {
         Accept: 'application/json',
         Authorization: `Bearer ${apiKey}`,
       },
-      body: JSON.stringify(requestBody),
+      data: JSON.stringify(requestBody),
     }
   );
 
@@ -75,7 +75,7 @@ export const translatePrompt = async (prompt) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({prompt}),
+      data: JSON.stringify({prompt}),
     })
 
     if (!response.ok) throw new Error('번역 오류: ' + response);
