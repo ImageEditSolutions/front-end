@@ -47,12 +47,11 @@ const handleSubmit = async ({ text, style, numImages}) => {
 
   console.log(response);
 
-  if (!response.ok) {
+  if (response.status !== 200) {
     throw new Error(`Non-200 response: ${await response.text()}`);
   }
 
-  const responseJSON = await response.json();
-  return responseJSON.artifacts.map((artifact) => `data:image/png;base64,${artifact.base64}`);
+  return response.data.artifacts.map((artifact) => `data:image/png;base64,${artifact.base64}`);
 };
 
 // 첫 번째로 실행되는 함수이자, 외부로 노출하는 유일한 api
