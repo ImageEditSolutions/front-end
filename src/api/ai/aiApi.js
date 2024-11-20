@@ -1,5 +1,6 @@
 // import axios from 'axios';
 import error from 'eslint-plugin-react/lib/util/error.js';
+import axios from 'axios';
 
 const apiKey = import.meta.env.VITE_STABILITY_API_KEY;
 const API_SERVER_URL = import.meta.env.VITE_API_SERVER_URL;
@@ -20,6 +21,7 @@ const handleSubmit = async ({ text, style, numImages}) => {
   const engineId = 'stable-diffusion-v1-6';
   const apiHost = 'https://api.stability.ai';
 
+  // 에러 처리
   if (!apiKey) throw new Error('Missing Stability API key.');
 
   const requestBody = {
@@ -30,9 +32,9 @@ const handleSubmit = async ({ text, style, numImages}) => {
     style_preset: style || 'photographic',
   };
 
-  const response = await fetch(
-    `${apiHost}/v1/generation/${engineId}/text-to-image`,
+  const response = await axios(
     {
+      url: `${apiHost}/v1/generation/${engineId}/text-to-image`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -53,6 +55,7 @@ const handleSubmit = async ({ text, style, numImages}) => {
   return responseJSON.artifacts.map((artifact) => `data:image/png;base64,${artifact.base64}`);
 };
 
+// 첫 번째로 실행되는 함수이자, 외부로 노출하는 유일한 api
 export const requestAIImageGeneration = async ({ text, style, numImages}) => {
   try {
     const translatedText = await translatePrompt(text);
@@ -66,13 +69,14 @@ export const requestAIImageGeneration = async ({ text, style, numImages}) => {
 
 export const translatePrompt = async (prompt) => {
   try {
-    const response = await fetch(`${API_SERVER_URL}/image-ai/translate`, {
+    const response = await axios({
+      url: `${API_SERVER_URL}/image-ai/translate`,
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({prompt}),
-    });
+    })
 
     if (!response.ok) throw new Error('번역 오류: ' + response);
 
