@@ -78,12 +78,8 @@ export const translatePrompt = async (prompt) => {
       data: JSON.stringify({prompt}),
     })
 
-    if (!response.ok) throw new Error('번역 오류: ' + response);
-
-    // const data = await response.json();
-
-    console.log('translatePrompt', response);
-    return response.translations[0].text;
+    console.log('translatePrompt result', response);
+    return response.data.translations[0].text;
   } catch (error) {
     console.log("번역 API 요청 오류:", error);
     return null;
