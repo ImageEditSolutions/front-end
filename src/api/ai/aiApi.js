@@ -60,6 +60,7 @@ export const requestAIImageGeneration = async ({ text, style, numImages}) => {
   try {
     const translatedText = await translatePrompt(text);
     if (translatedText) {
+      console.log(translatedText);
       return await handleSubmit({ text: translatedText, style: style, numImages: numImages });
     }
   } catch (error) {
