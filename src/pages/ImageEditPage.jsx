@@ -54,6 +54,8 @@ const ImageEditPage = () => {
   const handleLoadProject = async (id) => {
     const data = await LoadProject(id);
 
+    console.log('test');
+
     // 프로젝트 저장하기 기능 시 사용
     console.log('project load data', data);
     setProjectData(data);
