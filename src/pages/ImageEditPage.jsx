@@ -75,17 +75,17 @@ const ImageEditPage = () => {
   const handleLoadProject = async (id) => {
     // api 호출
     const loadProject = () => requestApi(`/api/download/${id}`, 'GET');
-    const data = await loadProject();
+    const response = await loadProject();
 
     // 프로젝트 저장하기 기능 시 사용
-    console.log('project load data', data);
-    setProjectData(data);
+    console.log('project load data', response);
+    setProjectData(response.data);
 
     // 이미지 불러오기 기능 시 사용
-    console.log('project loaded', data.imageUrl);
-    setImgData(data.imageUrl);
+    console.log('project loaded', response.data.imageUrl);
+    setImgData(response.data.imageUrl);
 
-    await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
+    await editorRef.current.imageEditorInst.loadImageFromURL(response.data.imageUrl, 'downloadProjectImage' );
   }
 
   const handleLoadImages = async (file) => {
