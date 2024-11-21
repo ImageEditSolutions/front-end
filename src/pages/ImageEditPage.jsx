@@ -6,7 +6,6 @@ import { useEffect, useRef, useState } from 'react';
 import myTheme from '../ui/theme/myTheme.js';
 import {CreateNewProject, SaveProject, LoadProject, DownloadImage} from '../tools'
 import Modal from '../components/ImageEditorComponent/Modal.jsx';
-import requestApi from '../api/requestApi.js';
 
 // 이전 작업 이미지 목록 (임시로 예시 이미지 경로 사용)
 const previousImages = [
@@ -42,50 +41,27 @@ const ImageEditPage = () => {
   }
 
   const handleSaveProject = async (id) => {
-    if (!editorRef.current) return;
-
-    const imgUrl = editorRef.current.imageEditorInst.toDataURL({
-      format: 'image/png',
-      quality: 1,
-    });
-    const blob = await (await fetch(imgUrl)).blob();
-
-    if (!blob) throw new Error('blob not found');
-
-    const formData = new FormData();
-    formData.append('uploadId', id);
-    formData.append('multipartFile', blob, 'image.png');
-
-    // api 호출
-    const saveProject = (options) => requestApi(`/api/upload`, 'POST', options);
-    const response = await saveProject({
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      data: formData,
-    });
-
-    // 성공 시 처리
-    if(response.status === 200) {
-      console.log('이미지 저장 완료');
-      setIsSaveModalOpen(false);
+    if (editorRef.current ) {
+      const res = await SaveProject(editorRef.current.imageEditorInst, id);
+      if(res === "success") {
+        console.log('이미지 저장 완료');
+        setIsSaveModalOpen(false);
+      }
     }
   }
 
   const handleLoadProject = async (id) => {
-    // api 호출
-    const loadProject = () => requestApi(`/api/download/${id}`, 'GET');
-    const response = await loadProject();
+    const data = await LoadProject(id);
 
     // 프로젝트 저장하기 기능 시 사용
-    console.log('project load data', response);
-    setProjectData(response.data);
+    console.log('project load data', data);
+    setProjectData(data);
 
     // 이미지 불러오기 기능 시 사용
-    console.log('project loaded', response.data.imageUrl);
-    setImgData(response.data.imageUrl);
+    console.log('project loaded', data.imageUrl);
+    setImgData(data.imageUrl);
 
-    await editorRef.current.imageEditorInst.loadImageFromURL(response.data.imageUrl, 'downloadProjectImage' );
+    await editorRef.current.imageEditorInst.loadImageFromURL(data.imageUrl, 'downloadProjectImage' );
   }
 
   const handleLoadImages = async (file) => {
@@ -154,11 +130,11 @@ const ImageEditPage = () => {
 
       {
         isSaveModalOpen &&
-          <Modal
-            text="저장하기"
-            onClose={() => setIsSaveModalOpen(false)} // 모달 닫기
-            handleProject={actions.SAVE_PROJECT} // ID 저장 처리
-          />
+        <Modal
+          text="저장하기"
+          onClose={() => setIsSaveModalOpen(false)} // 모달 닫기
+          handleProject={actions.SAVE_PROJECT} // ID 저장 처리
+        />
       }
 
       {
