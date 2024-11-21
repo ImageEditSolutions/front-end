@@ -6,10 +6,7 @@ export const downloadProject = async (uploadId) => {
   try {
     const response = await axios({
       method: 'GET',
-      url: `${API_SERVER_URL}/api/download`,
-      params: {
-        uploadId: uploadId
-      },
+      url: `${API_SERVER_URL}/api/download/uploadId=${uploadId}`,
     })
     console.log('download res\n ', response);
 
